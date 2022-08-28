@@ -6,63 +6,79 @@ import axios from 'axios'
 import logo from '../images/Frame.png'
 import Nav from '../components/Nav'
 
-const Dashboard = () => {
-    const [user, setUser] = useState(null)
-    const [genderedUsers, setGenderedUsers] = useState(null)
+const HMDashboard = () => {
+
+    const [hiringManager, setHiringManager] = useState(null)
+    const [developers, setDevelopers] = useState(null)
     const [lastDirection, setLastDirection] = useState()
-    const [cookies, setCookie, removeCookie] = useCookies(['user'])
+    const [cookies, setCookie, removeCookie] = useCookies(['hiringManager'])
 
-    const userId = cookies.UserId
+    console.log('Hiring Manager Id Cookie', cookies.HiringManagerId)
 
+    const hiringManagerId = cookies.HiringManagerId
 
-    const getUser = async () => {
+    console.log('hiring manager id', hiringManagerId)
+
+    const getHiringManager = async () => {
         try {
-            const response = await axios.get('http://localhost:8000/user', {
-                params: { userId }
+            const response = await axios.get('http://localhost:8000/hiring-manager', {
+                params: {
+                    hiringManagerId
+                }
             })
-            setUser(response.data)
+            setHiringManager(response.data)
+            console.log('hiring manager', hiringManager)
         } catch (error) {
             console.log(error)
         }
     }
-    const getGenderedUsers = async () => {
+
+    const getDevelopers = async () => {
+        console.log('hm interest', hiringManager?.interest)
         try {
-            const response = await axios.get('http://localhost:8000/gendered-users', {
-                params: { gender: user?.gender_interest }
+            const response = await axios.get('http://localhose:8000/developers', {
+                params: { 
+                    accountType:  hiringManager?.interest
+                }
             })
-            setGenderedUsers(response.data)
+
+            setDevelopers(response.data)
+
+            console.log('developers', developers)
+
         } catch (error) {
             console.log(error)
         }
     }
 
     useEffect(() => {
-        getUser()
+        getHiringManager()
 
     }, [])
 
     useEffect(() => {
-        if (user) {
-            getGenderedUsers()
+        if (hiringManager) {
+            getDevelopers()
         }
-    }, [user])
+    }, [hiringManager])
 
-    const updateMatches = async (matchedUserId) => {
+    console.log('developers', developers)
+
+    const updateMatches = async (matchedDeveloperId) => {
         try {
-            await axios.put('http://localhost:8000/addmatch', {
-                userId,
-                matchedUserId
+            await axios.put('http://localhost:8000/add-hm-match', {
+                hiringManagerId,
+                matchedDeveloperId
             })
-            getUser()
+            getHiringManager()
         } catch (err) {
             console.log(err)
         }
     }
 
-
-    const swiped = (direction, swipedUserId) => {
+    const swiped = (direction, swipedDeveloperId) => {
         if (direction === 'right') {
-            updateMatches(swipedUserId)
+            updateMatches(swipedDeveloperId)
         }
         setLastDirection(direction)
     }
@@ -71,26 +87,23 @@ const Dashboard = () => {
         console.log(name + ' left the screen!')
     }
 
-    const matchedUserIds = user?.matches.map(({ user_id }) => user_id).concat(userId)
+    const matchedDeveloperIds = hiringManager?.matches.map(({ developer_id }) => developer_id).concat(hiringManagerId)
 
-    const filteredGenderedUsers = genderedUsers?.filter(genderedUser => !matchedUserIds.includes(genderedUser.user_id))
+    const filteredDevelopers = developers?.filter(
+        developer => !matchedDeveloperIds.includes(developer.developer_id))
 
 
-    console.log('filteredGenderedUsers ', filteredGenderedUsers)
+    console.log('filteredDevelopers ', filteredDevelopers)
+
     return (
         <>
-            {user &&
+            {hiringManager &&
                 <div className="try">
-                    {/* <nav>
-                        <div className="logo-container">
-                            <img className="logo" src={logo} />
-                        </div>
-                    </nav> */}
+
                     <div className="dashboard">
-                        <ChatContainer user={user} />
+                        {/* <ChatContainer hiringManager={hiringManager} /> */}
                         <div className="swipe-container">
                             <div className="card-container">
-
 
                                 <div className='search-results'>
                                     <p className='text-container'>Search results:</p>
@@ -98,31 +111,25 @@ const Dashboard = () => {
                                 </div>
 
 
-                                {filteredGenderedUsers?.map((genderedUser) =>
+                                {filteredDevelopers?.map((developer) =>
 
 
                                     <TinderCard
-                                        // className="swipe"
-                                        // key={genderedUser.user_id}
-                                        // onSwipe={(dir) => swiped(dir, genderedUser.user_id)}
-                                        // onCardLeftScreen={() => outOfFrame(genderedUser.first_name)}>
-                                        // <div
-                                        //     style={{ backgroundImage: "url(" + genderedUser.url + ")" }}
-                                        //     className="card">
-                                        //     <h3>{genderedUser.first_name}</h3>
-                                        // </div>
+                                        className="swipe"
+                                        key={developer.developer_id}
+                                        onSwipe={(dir) => swiped(dir, developer.developer_id)}
+                                        onCardLeftScreen={() => outOfFrame(developer.first_name)}>
+                                        <div
+                                            style={{ backgroundImage: "url(" + developer.url + ")" }}
+                                            className="card">
+                                            <h3>{developer.first_name}</h3>
+                                        </div>
 
-                                        // className="swipe"
-                                        // key={genderedUser.user_id}
-                                        // onSwipe={(dir) => swiped(dir, genderedUser.user_id)}
-                                        // onCardLeftScreen={() => outOfFrame(genderedUser.first_name)}>
-                                        // <div
-                                        //     style={{ backgroundImage: "url(" + genderedUser.url + ")" }}
-                                        //     className="card">
-                                        //     <h3>{genderedUser.first_name}</h3>
-                                        // </div>
 
-                                        className='swipe'>
+                                        {/* className='swipe'
+                                        key={user.user_id}
+                                        onSwipe={(dir) => swiped(dir, user.user_id)}
+                                        onCardLeftScreen={() => outOfFrame(user.user_id)}>
                                         <div className='dev-card'>
                                             <div className='dev-card-info'>
                                                 <div className='profile-photo'>
@@ -163,7 +170,7 @@ const Dashboard = () => {
 
                                             </div>
 
-                                        </div>
+                                        </div> */}
                                     </TinderCard>
                                 )}
                                 <div className="swipe-info">
@@ -177,7 +184,7 @@ const Dashboard = () => {
                                 <div className='dev-details-profile'>
                                     <div className='dev-details-profile-sum'>
                                         <div className="dev-img-container">
-                                            <img src={user.url} alt={"photo of " + user.first_name} />
+                                            <img src={hiringManager.url} alt={"photo of " + hiringManager.first_name} />
                                         </div>
                                         <h3>Jack</h3>
                                         <h4>Full Stack Developer</h4>
@@ -237,9 +244,9 @@ const Dashboard = () => {
 
                         </div>
                     </div>
-                </div>
+                </div >
             }
         </>
     )
 }
-export default Dashboard
+export default HMDashboard

@@ -1,23 +1,76 @@
 import ChatHeader from './ChatHeader'
+import AdvancedSearch from './AdvancedSearch'
 import MatchesDisplay from './MatchesDisplay'
+import Favourites from './Favourites'
+import Messages from './Messages'
 import ChatDisplay from './ChatDisplay'
 import { useState } from 'react'
 
 const ChatContainer = ({ user }) => {
     const [clickedUser, setClickedUser] = useState(null)
+    const [advancedSearchWindow, setAdvancedSearchWindow] = useState(null)
+    const [favouritesWindow, setFavouritesWindow] = useState(null)
+    const [messagesWindow, setMessagesWindow] = useState(null)
+
+
+    const handleClick = (e) => {
+        console.log('click window')
+        
+        const value = e.target.value
+        
+        if (value === 'advanced-search') {
+            setAdvancedSearchWindow(true)
+            setFavouritesWindow(false)
+            setMessagesWindow(false)
+        }
+        
+         if  (value === 'favourites') {
+            setAdvancedSearchWindow(false)
+            setFavouritesWindow(true)
+            setMessagesWindow(false)
+        }
+        
+        if (value === 'messages') {
+            setAdvancedSearchWindow(false)
+            setFavouritesWindow(false)
+            setMessagesWindow(true)
+        }
+    }
 
     return (
         <div className="chat-container">
             <ChatHeader user={user} />
 
-            <div>
-                <button className="option" onClick={() => setClickedUser(null)}>Favourites</button>
-                <button className="option" disabled={!clickedUser}>Chat</button>
+            <div className='window'>
+                <button
+                    className="filter-button"
+                    value='advanced-search'
+                    onClick={handleClick}
+                >
+                    Advanced Search
+                </button>
+                <button
+                    className="filter-button"
+                    value="favourites"
+                    onClick={handleClick}
+
+                >
+                    Favourites</button>
+                <button
+                    className="filter-button"
+                    value="messages"
+                    onClick={handleClick}
+                >
+                    Messages
+                </button>
+
+
             </div>
 
-            {!clickedUser && <MatchesDisplay matches={user.matches} setClickedUser={setClickedUser} />}
+            {advancedSearchWindow && <AdvancedSearch />}
+            {favouritesWindow && <Favourites />}
+            {messagesWindow && <Messages />}
 
-            {clickedUser && <ChatDisplay user={user} clickedUser={clickedUser} />}
         </div>
     )
 }

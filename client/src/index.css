@@ -189,7 +189,30 @@ nav .nav-button:disabled {
 
 .onboarding {
   border-top: solid 1px rgb(154, 154, 154);
+
 }
+
+.onboarding .card-container {
+  width: 50%;
+  height: 950px;
+
+}
+
+.onboard-card {
+
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: rgb(120, 23, 23);
+  width: auto;
+  height: auto;
+  border-radius: 20px;
+  padding: 10px;
+  background-size: cover;
+  background-position: center;
+  /* border: solid 10px rgb(221, 39, 22); */
+  box-shadow: 1px 1px 4px 0 rgb(0, 0, 0, 0.25);
+  
+}
+
 
 .onboarding form {
   display: flex;
@@ -330,6 +353,28 @@ nav .nav-button:disabled {
 }
 
 /* ---- Chat Container ---- */
+
+.window {
+  background: #2e9809;
+  height: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+.window button {
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  background-color: #ffffff00;
+  color: #ffffff;
+  font-size: 13px;
+}
+
+.window button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
 
 .chat-container {
   background-color: rgb(255, 255, 255);
@@ -844,3 +889,32 @@ flex-wrap: wrap;
   border-radius: 25px;
   border: solid 2px #000814;
 }
+
+.clear-filter {
+  display: flex;
+  justify-content: right;
+}
+
+.advanced-search {
+  display: flex;
+  justify-content: left;
+}
+
+/* .advanced-search button {
+  pointer-events: none;
+  background-color: #ffffff;
+  color: #000000;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 10px;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-right: 2px;
+  margin-left: 2px;
+  margin-bottom: 2px;
+  border-radius: 25px;
+  border: solid 1px #000;
+} */
+

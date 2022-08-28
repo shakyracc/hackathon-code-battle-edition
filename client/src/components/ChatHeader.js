@@ -45,19 +45,20 @@ const ChatHeader = ({ user }) => {
                     <i className="log-out-icon" onClick={logout}>⇦</i>
                 </div>
             </div>
-            <div className='search'>
+            {/* <div className='search'>
                 <input
                     type="text"
                     placeholder=""
                     onChange={""}
                     value={""}
                 />
-            </div>
-            <div className='filter'>
+            </div> */}
+            
+            {/* <div className='filter'>
                 <button className="filter-button">Advanced Search</button>
                 <button className="filter-button">Favourite</button>
                 <button className="filter-button">Messages</button>
-            </div>
+            </div> */}
 
         </div>
     )

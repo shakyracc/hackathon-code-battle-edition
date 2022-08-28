@@ -18,39 +18,85 @@ app.get('/', (req, res) => {
     res.json('Hello to my app')
 })
 
-// Sign up to the Database
-app.post('/signup', async (req, res) => {
+//Hiring Manager Sign up to the Database 
+app.post('/hm-signup', async (req, res) => {
     const client = new MongoClient(uri)
+    console.log(req.body)
     const { email, password } = req.body
 
-    const generatedUserId = uuidv4()
+    console.log('email', email)
+
+    const generatedHiringManagerId = uuidv4()
     const hashedPassword = await bcrypt.hash(password, 10)
 
     try {
         await client.connect()
         const database = client.db('app-data')
-        const users = database.collection('users')
+        const hiringManagers = database.collection('hiring-managers')
 
-        const existingUser = await users.findOne({ email })
+        const existingHiringManager = await hiringManagers.findOne({ email })
 
-        if (existingUser) {
+        if (existingHiringManager) {
+            return res.status(409).send('User already exists. Please login')
+        }
+
+        const sanitizedEmail = email.toLowerCase()
+
+        console.log(sanitizedEmail)
+
+        const data = {
+            hiring_manager_id: generatedHiringManagerId,
+            email: sanitizedEmail,
+            hashed_password: hashedPassword
+        }
+
+        const insertedHiringManager = await hiringManagers.insertOne(data)
+
+        const token = jwt.sign(insertedHiringManager, sanitizedEmail, {
+            expiresIn: 60 * 24
+        })
+        res.status(201).json({ token, hiringManagerId: generatedHiringManagerId })
+
+    } catch (err) {
+        console.log(err)
+    } finally {
+        await client.close()
+    }
+})
+
+// Sign up to the Database
+app.post('/dev-signup', async (req, res) => {
+    const client = new MongoClient(uri)
+    const { email, password } = req.body
+
+    const generatedDeveloperId = uuidv4()
+    const hashedPassword = await bcrypt.hash(password, 10)
+
+    try {
+        await client.connect()
+        const database = client.db('app-data')
+        const developers = database.collection('developers')
+
+        const existingDeveloper = await developers.findOne({ email })
+
+        if (existingDeveloper) {
             return res.status(409).send('User already exists. Please login')
         }
 
         const sanitizedEmail = email.toLowerCase()
 
         const data = {
-            user_id: generatedUserId,
+            developer_id: generatedDeveloperId,
             email: sanitizedEmail,
             hashed_password: hashedPassword
         }
 
-        const insertedUser = await users.insertOne(data)
+        const insertedDeveloper = await developers.insertOne(data)
 
-        const token = jwt.sign(insertedUser, sanitizedEmail, {
+        const token = jwt.sign(insertedDeveloper, sanitizedEmail, {
             expiresIn: 60 * 24
         })
-        res.status(201).json({ token, userId: generatedUserId })
+        res.status(201).json({ token, developerId: generatedDeveloperId })
 
     } catch (err) {
         console.log(err)
@@ -108,6 +154,46 @@ app.get('/user', async (req, res) => {
     }
 })
 
+app.get('/hiring-manager', async (req, res) => {
+    const client = new MongoClient(uri)
+    console.log('hiring manager', req.query.hiringManagerId)
+    const hiringManagerId = req.query.hiringManagerId
+
+    try { 
+        await client.connect()
+        const database = client.db('app-data')
+        const hiringManagers = database.collection('hiring-managers')
+
+        const query = { hiring_manager_id: hiringManagerId }
+        const hiringManager = await hiringManagers.findOne(query)
+        res.send(hiringManager)
+    } finally{
+        await client.close()
+    }
+}) 
+
+app.get('/developers', async (req, res) => {
+    const client = new MongoClient(uri)
+    console.log('account type', req.params.accountType)
+    const accountType = req.query.accountType //accunt type: hiring manager interest = developer
+
+    try {
+        await client.connect()
+        const database = client.db('app-data')
+        const developers = database.collection('developers')
+     
+        const query = { account_type: { $eq: 'developer' } }
+    
+        const foundDevelopers = await developers.find(query).toArray()
+
+        console.log('found developers', foundDevelopers)
+        res.json(foundDevelopers)
+
+    } finally {
+        await client.close()
+    }
+})
+
 // Update User with a match
 app.put('/addmatch', async (req, res) => {
     const client = new MongoClient(uri)
@@ -124,6 +210,27 @@ app.put('/addmatch', async (req, res) => {
         }
         const user = await users.updateOne(query, updateDocument)
         res.send(user)
+    } finally {
+        await client.close()
+    }
+})
+
+app.put('/add-hm-match', async (req, res) => {
+    const client = new MongoClient(uri)
+    const { hiringManagerId, matchedDeveloperId } = req.body
+
+    try {
+        await client.connect()
+        const database = client.db('app-data')
+        const hiringManagers = database.collection('hiring-managers')
+
+        const query = { hiring_manager_id: hiringManagerId }
+
+        const updateDocument = {
+            $push: { matches: { developer_id: matchedDeveloperId } }
+        }
+        const hiringManager = await hiringManagers.updateOne(query, updateDocument)
+        res.send(hiringManager)
     } finally {
         await client.close()
     }
@@ -159,6 +266,44 @@ app.get('/users', async (req, res) => {
     }
 })
 
+app.get('/filtered-users', async (req, res) => {
+    const client = new MongoClient(uri)
+    // const searchFormData = req.body.searchFormData 
+    const country = req.query.country
+    const degree = req.query.degree
+    const availability = req.query.availability
+    const expereince = req.query.expereince
+    const available_from = req.query.available_from
+    const skills = req.query.skills
+
+    try {
+        await client.connect()
+        const database = client.db('app-data')
+        const users = database.collection('users')
+
+        const query = {
+            country: { $eq: country },
+            role: { $eq: country },
+            degree: { $eq: country },
+            availability: { $eq: country },
+            experience: { $eq: country },
+            available_from: { $eq: country },
+            skills: { $eq: country }
+        }
+
+        const foundUsers = await users.find(query).toArray()
+
+        res.json(foundUsers)
+
+    } finally {
+        await client.close()
+    }
+})
+
+
+
+
+
 // Get all the Gendered Users in the Database
 app.get('/gendered-users', async (req, res) => {
     const client = new MongoClient(uri)
@@ -178,35 +323,78 @@ app.get('/gendered-users', async (req, res) => {
 })
 
 // Update a User in the Database
-app.put('/user', async (req, res) => {
+app.put('/developer', async (req, res) => {
     const client = new MongoClient(uri)
     const formData = req.body.formData
 
     try {
         await client.connect()
         const database = client.db('app-data')
-        const users = database.collection('users')
+        const developers = database.collection('developers')
 
         const query = { user_id: formData.user_id }
 
         const updateDocument = {
             $set: {
                 first_name: formData.first_name,
-                dob_day: formData.dob_day,
-                dob_month: formData.dob_month,
-                dob_year: formData.dob_year,
-                show_gender: formData.show_gender,
-                gender_identity: formData.gender_identity,
-                gender_interest: formData.gender_interest,
+                account_type: formData.account_type,
+                country: formData.country,
+                role: formData.role,
+                degree: formData.degree,
+                availability: formData.availability,
+                experience: formData.experience,
+                available_from: formData.available_from,
+                skills: formData.skill,
+                interest: formData.interest,
                 url: formData.url,
                 about: formData.about,
                 matches: formData.matches
             },
         }
 
-        const insertedUser = await users.updateOne(query, updateDocument)
+        const insertedDeveloper = await developers.updateOne(query, updateDocument)
 
-        res.json(insertedUser)
+        res.json(insertedDeveloper)
+
+    } finally {
+        await client.close()
+    }
+})
+
+app.put('/hiring-manager', async (req, res) => {
+    const client = new MongoClient(uri)
+    console.log(req.body.formData)
+    const formData = req.body.formData
+
+    try {
+        await client.connect()
+        const database = client.db('app-data')
+        const hiringManagers = database.collection('hiring-managers')
+
+        const query = {
+            hiring_manager_id: formData.hiring_manager_id
+        }
+
+        const updateDocument = {
+            $set: {
+                first_name: formData.first_name,
+                account_type: formData.account_type,
+                country: formData.country,
+                role: formData.role,
+                degree: formData.degree,
+                availability: formData.availability,
+                experience: formData.experience,
+                available_from: formData.available_from,
+                skills: formData.skill,
+                interest: formData.interest,
+                url: formData.url,
+                matches: formData.matches
+            },
+        }
+
+        const insertedHiringManager = await hiringManagers.updateOne(query, updateDocument)
+
+        res.json(insertedHiringManager)
 
     } finally {
         await client.close()
