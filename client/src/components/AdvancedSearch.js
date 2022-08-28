@@ -5,13 +5,14 @@ import axios from 'axios'
 const AdvancedSearch = () => {
 const [email, setEmail] = useState(null)
     const [cookies, setCookie, removeCookie] = useCookies(null)
-    const [searchFormData, setSearchFormData] = useState({
-        country: "",
-        role: "",
-        degree: "",
-        availability: "",
-        experience: "",
-        available_from: "",
+    const [formData, setformData] = useState({
+        hiring_manager_id: cookies.HiringManagerId,
+        country: "all",
+        role: "all",
+        degree: "all",
+        availability: "all",
+        experience: "all",
+        available_from: "all",
         skills: "",
     })
 
@@ -23,49 +24,15 @@ const [email, setEmail] = useState(null)
     const [available_from, setAvailable_from] = useState(null)
     const [skills, setSkills] = useState(null)
 
-    const handleClick = (e) => {
-        console.log('clear search')
-        try {
-            removeCookie('Country', searchFormData.country)
-            removeCookie('Role', searchFormData.role)
-            removeCookie('Degree', searchFormData.degree)
-            removeCookie('Availability', searchFormData.availability)
-            removeCookie('Experience', searchFormData.experience)
-            removeCookie('Available_From', searchFormData.available_from)
-            removeCookie('Skills', searchFormData.skills)
-            return
-        } catch(err){
-            console.log(err)
-        }    
-    
-    }
-
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         console.log('submitted')
         e.preventDefault()
         try {
-            console.log(searchFormData)
-
-            // const response = await axios.post(`http://localhost:8000/search`, {
-            //     country, role, degree, availability, experience, available_from, skills
-            // })
-
-            // setCookie('Country', formData.country)
-            // setCookie('Role', response.data.role)
-            // setCookie('Degree', response.data.degree)
-            // setCookie('Availability', response.data.availability)
-            // setCookie('Experience', response.data.experience)
-            // setCookie('Available_From', response.data.available_from)
-            // setCookie('Skills', response.data.skills)
-
-            setCookie('Country', searchFormData.country)
-            setCookie('Role', searchFormData.role)
-            setCookie('Degree', searchFormData.degree)
-            setCookie('Availability', searchFormData.availability)
-            setCookie('Experience', searchFormData.experience)
-            setCookie('Available_From', searchFormData.available_from)
-            setCookie('Skills', searchFormData.skills)
-
+            const response = await axios.put('http://localhost:8000/hiring-manager-search', { formData })
+   
+            const success = response.status === 200
+            if (success ) {window.location.reload()}
+        
         } catch (err) {
             console.log(err)
         }
@@ -76,7 +43,7 @@ const [email, setEmail] = useState(null)
         const value = e.target.type === "checkbox" ? e.target.checked : e.target.value
         const name = e.target.name
 
-        setSearchFormData((prevState) => ({
+        setformData((prevState) => ({
             ...prevState,
             [name]: value
         }))
@@ -86,9 +53,6 @@ const [email, setEmail] = useState(null)
 
     return (
         <>
-            <div className="clear-filter">
-                <button className='' onClick={handleClick}>Clear Filter</button>
-            </div>
 
             <form onSubmit={handleSubmit}>
 
@@ -102,7 +66,7 @@ const [email, setEmail] = useState(null)
                             name="country"
                             value="india"
                             onChange={handleChange}
-                            checked={searchFormData.country === "india"}
+                            checked={formData.country === "india"}
                         />
                         <label htmlFor="india-country">India</label>
                         <input
@@ -111,7 +75,7 @@ const [email, setEmail] = useState(null)
                             name="country"
                             value="japan"
                             onChange={handleChange}
-                            checked={searchFormData.country === "japan"}
+                            checked={formData.country === "japan"}
                         />
                         <label htmlFor="country-japan">Japan</label>
                         <input
@@ -120,7 +84,7 @@ const [email, setEmail] = useState(null)
                             name="country"
                             value="usa"
                             onChange={handleChange}
-                            checked={searchFormData.country === "usa"}
+                            checked={formData.country === "usa"}
                         />
                         <label htmlFor="country-usa">USA</label>
                     </div>
@@ -133,7 +97,7 @@ const [email, setEmail] = useState(null)
                             name="role"
                             value="front"
                             onChange={handleChange}
-                            checked={searchFormData.role === "front"}
+                            checked={formData.role === "front"}
                         />
                         <label htmlFor="front-role">Front</label>
                         <input
@@ -142,7 +106,7 @@ const [email, setEmail] = useState(null)
                             name="role"
                             value="back"
                             onChange={handleChange}
-                            checked={searchFormData.role === "back"}
+                            checked={formData.role === "back"}
                         />
                         <label htmlFor="back-role">Back</label>
                         <input
@@ -151,7 +115,7 @@ const [email, setEmail] = useState(null)
                             name="role"
                             value="ops"
                             onChange={handleChange}
-                            checked={searchFormData.role === "ops"}
+                            checked={formData.role === "ops"}
                         />
                         <label htmlFor="ops-role">Ops</label>
                     </div>
@@ -164,7 +128,7 @@ const [email, setEmail] = useState(null)
                             name="degree"
                             value="yes"
                             onChange={handleChange}
-                            checked={searchFormData.degree === "yes"}
+                            checked={formData.degree === "yes"}
                         />
                         <label htmlFor="yes-degree">Yes</label>
                         <input
@@ -173,7 +137,7 @@ const [email, setEmail] = useState(null)
                             name="degree"
                             value="no"
                             onChange={handleChange}
-                            checked={searchFormData.degree === "no"}
+                            checked={formData.degree === "no"}
                         />
                         <label htmlFor="no-degree">No</label>
 
@@ -187,7 +151,7 @@ const [email, setEmail] = useState(null)
                             name="availability"
                             value="full"
                             onChange={handleChange}
-                            checked={searchFormData.availability === "full"}
+                            checked={formData.availability === "full"}
                         />
                         <label htmlFor="full-availability">Full Time</label>
                         <input
@@ -196,7 +160,7 @@ const [email, setEmail] = useState(null)
                             name="availability"
                             value="part"
                             onChange={handleChange}
-                            checked={searchFormData.availability === "part"}
+                            checked={formData.availability === "part"}
                         />
                         <label htmlFor="part-availability">Part Time</label>
                     </div>
@@ -209,7 +173,7 @@ const [email, setEmail] = useState(null)
                             name="experience"
                             value="junior"
                             onChange={handleChange}
-                            checked={searchFormData.experience === "junior"}
+                            checked={formData.experience === "junior"}
                         />
                         <label htmlFor="junior-experience">Junior</label>
                         <input
@@ -218,7 +182,7 @@ const [email, setEmail] = useState(null)
                             name="experience"
                             value="senior"
                             onChange={handleChange}
-                            checked={searchFormData.experience === "senior"}
+                            checked={formData.experience === "senior"}
                         />
                         <label htmlFor="senior-experience">Senior</label>
                     </div>
@@ -231,7 +195,7 @@ const [email, setEmail] = useState(null)
                             name="available_from"
                             value="now"
                             onChange={handleChange}
-                            checked={searchFormData.available_from === "now"}
+                            checked={formData.available_from === "now"}
                         />
                         <label htmlFor="available-from-now">Now</label>
                         <input
@@ -240,7 +204,7 @@ const [email, setEmail] = useState(null)
                             name="available_from"
                             value="week"
                             onChange={handleChange}
-                            checked={searchFormData.available_from === "week"}
+                            checked={formData.available_from === "week"}
                         />
                         <label htmlFor="available-from-week">One Week</label>
                     </div>
@@ -254,7 +218,7 @@ const [email, setEmail] = useState(null)
                             name="skills"
                             value="react"
                             onChange={handleChange}
-                            checked={searchFormData.skills === "react"}
+                            checked={formData.skills === "react"}
                         />
                         <label htmlFor="skills-react">React</label>
                         <input
@@ -263,7 +227,7 @@ const [email, setEmail] = useState(null)
                             name="skills"
                             value="python"
                             onChange={handleChange}
-                            checked={searchFormData.skills === "python"}
+                            checked={formData.skills === "python"}
                         />
                         <label htmlFor="skills-python">Python</label>
 
@@ -273,7 +237,7 @@ const [email, setEmail] = useState(null)
                             name="skills"
                             value="node"
                             onChange={handleChange}
-                            checked={searchFormData.skills === "node"}
+                            checked={formData.skills === "node"}
                         />
                         <label htmlFor="skills-node">Node.js</label>
                     </div>

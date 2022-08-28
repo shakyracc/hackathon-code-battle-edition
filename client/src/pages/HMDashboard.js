@@ -13,11 +13,10 @@ const HMDashboard = () => {
     const [lastDirection, setLastDirection] = useState()
     const [cookies, setCookie, removeCookie] = useCookies(['hiringManager'])
 
-    console.log('Hiring Manager Id Cookie', cookies.HiringManagerId)
-
     const hiringManagerId = cookies.HiringManagerId
+    const accountType = hiringManager?.interest
 
-    console.log('hiring manager id', hiringManagerId)
+    console.log('account type', accountType)
 
     const getHiringManager = async () => {
         try {
@@ -27,24 +26,22 @@ const HMDashboard = () => {
                 }
             })
             setHiringManager(response.data)
-            console.log('hiring manager', hiringManager)
+
         } catch (error) {
             console.log(error)
         }
     }
 
     const getDevelopers = async () => {
-        console.log('hm interest', hiringManager?.interest)
+
         try {
-            const response = await axios.get('http://localhose:8000/developers', {
+            const response = await axios.get('http://localhost:8000/developers', {
                 params: { 
-                    accountType:  hiringManager?.interest
+                    accountType
                 }
             })
 
             setDevelopers(response.data)
-
-            console.log('developers', developers)
 
         } catch (error) {
             console.log(error)
@@ -62,7 +59,6 @@ const HMDashboard = () => {
         }
     }, [hiringManager])
 
-    console.log('developers', developers)
 
     const updateMatches = async (matchedDeveloperId) => {
         try {
@@ -92,6 +88,8 @@ const HMDashboard = () => {
     const filteredDevelopers = developers?.filter(
         developer => !matchedDeveloperIds.includes(developer.developer_id))
 
+        //filtering each developer in the developers aray.
+        //if developer is not included in the matcheddeveloperids array then we can include it
 
     console.log('filteredDevelopers ', filteredDevelopers)
 
@@ -101,7 +99,7 @@ const HMDashboard = () => {
                 <div className="try">
 
                     <div className="dashboard">
-                        {/* <ChatContainer hiringManager={hiringManager} /> */}
+                        <ChatContainer hiringManager={hiringManager}/>
                         <div className="swipe-container">
                             <div className="card-container">
 

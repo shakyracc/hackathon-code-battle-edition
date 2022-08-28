@@ -6,7 +6,7 @@ import Messages from './Messages'
 import ChatDisplay from './ChatDisplay'
 import { useState } from 'react'
 
-const ChatContainer = ({ user }) => {
+const ChatContainer = ({ hiringManager }) => {
     const [clickedUser, setClickedUser] = useState(null)
     const [advancedSearchWindow, setAdvancedSearchWindow] = useState(null)
     const [favouritesWindow, setFavouritesWindow] = useState(null)
@@ -39,7 +39,7 @@ const ChatContainer = ({ user }) => {
 
     return (
         <div className="chat-container">
-            <ChatHeader user={user} />
+            <ChatHeader hiringManager={hiringManager} />
 
             <div className='window'>
                 <button
@@ -68,7 +68,7 @@ const ChatContainer = ({ user }) => {
             </div>
 
             {advancedSearchWindow && <AdvancedSearch />}
-            {favouritesWindow && <Favourites />}
+            {favouritesWindow && <Favourites matches={hiringManager.matches}/>}
             {messagesWindow && <Messages />}
 
         </div>

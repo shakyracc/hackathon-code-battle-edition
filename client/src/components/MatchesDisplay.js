@@ -6,34 +6,34 @@ const MatchesDisplay = ({ matches, setClickedUser }) => {
     const [matchedProfiles, setMatchedProfiles] = useState(null);
     const [cookies, setCookie, removeCookie] = useCookies(null);
 
-    const matchedUserIds = matches.map(({ user_id }) => user_id);
-    const userId = cookies.UserId;
+    // const matchedDeveloperIds = matches.map(({ developer_id }) => developer_id);
+    // const hiringManagerId = cookies.HiringManagerId;
 
-    const getMatches = async () => {
-        try {
-            const response = await axios.get("http://localhost:8000/users", {
-                params: { userIds: JSON.stringify(matchedUserIds) },
-            });
-            setMatchedProfiles(response.data);
-        } catch (error) {
-            console.log(error);
-        }
-    };
+    // const getMatches = async () => {
+    //     try {
+    //         const response = await axios.get("http://localhost:8000/developer", {
+    //             params: { developerIds: JSON.stringify(matchedDeveloperIds) },
+    //         });
+    //         setMatchedProfiles(response.data);
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // };
 
-    useEffect(() => {
-        getMatches();
-    }, [matches]);
+    // useEffect(() => {
+    //     getMatches();
+    // }, []);
 
     // const filteredMatchedProfiles = matchedProfiles?.filter(
     //     (setMatchedProfile) =>
-    //         matchedProfile.matches.filter((profile) => profile.user_id == userId)
+    //         matchedProfile.matches.filter((profile) => profile.hiringManagerId == hiringManagerId)
     //             .length > 0
     // );
 
     return (
         <div className="matches-display">
 
-            <div className="favourites-display">
+            {/* <div className="favourites-display">
                 <div className="favourites-display-card">
                     <div className='dev-sum'>
                         <h3>Jack</h3>
@@ -111,11 +111,11 @@ const MatchesDisplay = ({ matches, setClickedUser }) => {
                     </div>
                 </div>
 
-            </div>
+            </div> */}
 
 
 
-            {/* {matchedProfiles?.map((match, _index) => (
+            {matchedProfiles?.map((match, _index) => (
 
                 <div
                     key={match.user_id}
@@ -127,7 +127,7 @@ const MatchesDisplay = ({ matches, setClickedUser }) => {
                     </div>
                     <h3>{match?.first_name}</h3>
                 </div>
-            ))} */}
+            ))}
         </div>
     );
 };

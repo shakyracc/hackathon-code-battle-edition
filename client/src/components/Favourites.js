@@ -1,4 +1,45 @@
-const Favourites = () => {
+import axios from "axios"
+import { userState } from 'react'
+import { useEffect, useState } from "react"
+import { useCookies } from "react-cookie"
+
+const Favourites = ({ matches }) => {
+
+    const [matchedProfiles, setMatchedProfiles] = useState(null)
+    const [cookies, setCookie, removeCookie] = useCookies(null)
+
+    const matchedDeveloperIds = matches.map(({ developer_id }) => developer_id)
+
+    console.log('mdi', matchedDeveloperIds)
+
+    const hiringManagerId = cookies.HiringManagerId
+
+    console.log('developerIds', JSON.stringify(matchedDeveloperIds))
+    console.log('developerIds nostringiify', (matchedDeveloperIds))
+
+    const getMatches = async () => {
+        try {
+            const response = await axios.get("http://localhost:8000/favourites", {
+                params: { developerIds: (matchedDeveloperIds) },
+            })
+            setMatchedProfiles(response.data)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    useEffect(() => {
+        getMatches()
+    }, [matches])
+
+    // const filteredMatchedProfiles = matchedProfiles?.filter(
+    //     (setMatchedProfile) =>
+    //         matchedProfile.matches.filter((profile) => profile.hiringManagerId == hiringManagerId)
+    //             .length > 0
+    // )
+
+
+
     return (
         <div className="matches-display">
 

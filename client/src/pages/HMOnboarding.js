@@ -17,7 +17,7 @@ const HMOnboarding = () => {
         availability: "all",
         experience: "all",
         available_from: "all",
-        skills: "alls",
+        skills: "all",
         interest: "developer",
         url: "",
         matches: []

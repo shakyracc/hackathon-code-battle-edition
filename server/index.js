@@ -156,10 +156,10 @@ app.get('/user', async (req, res) => {
 
 app.get('/hiring-manager', async (req, res) => {
     const client = new MongoClient(uri)
-    console.log('hiring manager', req.query.hiringManagerId)
+    console.log('hiring manager get', req.query.hiringManagerId)
     const hiringManagerId = req.query.hiringManagerId
 
-    try { 
+    try {
         await client.connect()
         const database = client.db('app-data')
         const hiringManagers = database.collection('hiring-managers')
@@ -167,23 +167,25 @@ app.get('/hiring-manager', async (req, res) => {
         const query = { hiring_manager_id: hiringManagerId }
         const hiringManager = await hiringManagers.findOne(query)
         res.send(hiringManager)
-    } finally{
+    } finally {
         await client.close()
     }
-}) 
+})
 
 app.get('/developers', async (req, res) => {
     const client = new MongoClient(uri)
-    console.log('account type', req.params.accountType)
+    console.log('account type query', req.query.accountType)
     const accountType = req.query.accountType //accunt type: hiring manager interest = developer
 
     try {
         await client.connect()
         const database = client.db('app-data')
         const developers = database.collection('developers')
-     
-        const query = { account_type: { $eq: 'developer' } }
-    
+
+        const query = { 
+            account_type: { $eq: 'developer' }
+         }
+
         const foundDevelopers = await developers.find(query).toArray()
 
         console.log('found developers', foundDevelopers)
@@ -258,6 +260,35 @@ app.get('/users', async (req, res) => {
             ]
 
         const foundUsers = await users.aggregate(pipeline).toArray()
+
+        res.json(foundUsers)
+
+    } finally {
+        await client.close()
+    }
+})
+
+app.get('/developer', async (req, res) => {
+    const client = new MongoClient(uri)
+    const developerIds = JSON.parse(req.query.developerIds)
+
+    try {
+        await client.connect()
+        const database = client.db('app-data')
+        const hiringManagers = database.collection('hiring-managers')
+
+        const pipeline =
+            [
+                {
+                    '$match': {
+                        'developer_id': {
+                            '$in': developerIds
+                        }
+                    }
+                }
+            ]
+
+        const foundUsers = await hiringManagers.aggregate(pipeline).toArray()
 
         res.json(foundUsers)
 
@@ -385,10 +416,47 @@ app.put('/hiring-manager', async (req, res) => {
                 availability: formData.availability,
                 experience: formData.experience,
                 available_from: formData.available_from,
-                skills: formData.skill,
+                skills: formData.skills,
                 interest: formData.interest,
                 url: formData.url,
                 matches: formData.matches
+            },
+        }
+
+        const insertedHiringManager = await hiringManagers.updateOne(query, updateDocument)
+
+        res.json(insertedHiringManager)
+
+    } finally {
+        await client.close()
+    }
+})
+
+app.put('/hiring-manager-search', async (req, res) => {
+    const client = new MongoClient(uri)
+    console.log(req.body.formData)
+    const formData = req.body.formData
+
+    try {
+        await client.connect()
+        const database = client.db('app-data')
+        const hiringManagers = database.collection('hiring-managers')
+
+        const query = {
+            hiring_manager_id: formData.hiring_manager_id
+        }
+
+        const updateDocument = {
+            $set: {
+
+                country: formData.country,
+                role: formData.role,
+                degree: formData.degree,
+                availability: formData.availability,
+                experience: formData.experience,
+                available_from: formData.available_from,
+                skills: formData.skills,
+
             },
         }
 
@@ -433,6 +501,37 @@ app.post('/message', async (req, res) => {
 
         const insertedMessage = await messages.insertOne(message)
         res.send(insertedMessage)
+    } finally {
+        await client.close()
+    }
+})
+
+app.get('/favourites', async (req, res) => {
+    const client = new MongoClient(uri)
+    console.log('made it')
+    const developerIds = req.query.developerIds
+    console.log('dev ids', developerIds)
+
+    try {
+        await client.connect()
+        const database = client.db('app-data')
+        const hiringManagers = database.collection('hiring-managers')
+
+        const pipeline =
+            [
+                {
+                    '$match': {
+                        'developer_id': {
+                            '$in': developerIds
+                        }
+                    }
+                }
+            ]
+
+        const foundUsers = await hiringManagers.aggregate(pipeline).toArray()
+
+        res.json(foundUsers)
+
     } finally {
         await client.close()
     }

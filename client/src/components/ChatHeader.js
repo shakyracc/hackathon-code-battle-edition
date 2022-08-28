@@ -4,15 +4,15 @@ import { useCookies } from 'react-cookie'
 // import axios from 'axios'
 
 
-const ChatHeader = ({ user }) => {
-    const [cookies, setCookies, removeCookie] = useCookies(['user'])
+const ChatHeader = ({ hiringManager }) => {
+    const [cookies, setCookies, removeCookie] = useCookies(['hiringManager'])
     // const [error] = useState(null)
 
     // let navigate = useNavigate()
 
     const logout = () => {
-        removeCookie('UserId', cookies.UserId)
-        removeCookie('AuthToken', cookies.AuthToken)
+        removeCookie('HiringManagerId', cookies.HiringManagerId)
+        removeCookie('HiringManagerAuthToken', cookies.HiringManagerAuthToken)
         window.location.reload()
         // navigate('/')
 
@@ -37,9 +37,9 @@ const ChatHeader = ({ user }) => {
             <div className='profile-logout'>
                 <div className="profile">
                     <div className="img-container">
-                        <img src={user.url} alt={"photo of " + user.first_name} />
+                        <img src={hiringManager.url} alt={"photo of " + hiringManager.first_name} />
                     </div>
-                    <h3>{user.first_name}</h3>
+                    <h3>{hiringManager.first_name}</h3>
                 </div>
                 <div>
                     <i className="log-out-icon" onClick={logout}>⇦</i>
