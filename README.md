@@ -8,6 +8,8 @@ DevHire’s algorithm leverages advanced filtering and the Elo rating system to 
 
 We help hiring managers save time and money and accelerate towards faster growth in high-quality technology  development.
 
+### Check out our [PitchDeck](https://github.com/shakyracornelius/hackathon-code-battle-edition/blob/main/DevHire%20Pitch%20Deck.pdf) ⚠️
+
 ## 🎯 Objective
 
 [Option #2 -  Developer Search Website For Hiring Managers](https://github.com/divanov11/Hackathon---Code-Battle-Edition#%EF%B8%8F-option-2---developer-search-website-for-hiring-managers)
@@ -72,9 +74,9 @@ I met @3fcc#1923 on reddit a few months ago when they were searching for a Dart 
 
 #### Acknowledgments 
 
-[Code with Ania Kubów](https://www.youtube.com/watch?v=Q70IMS-Qnjk)
-[Flavio Copes](https://flaviocopes.com)
-[Aman Mittal](https://dev.to/amanhimself/build-a-rest-api-with-node-js-and-harperdb-3738)
+[Code with Ania Kubów](https://www.youtube.com/watch?v=Q70IMS-Qnjk) <br>
+[Flavio Copes](https://flaviocopes.com) <br>
+[Aman Mittal](https://dev.to/amanhimself/build-a-rest-api-with-node-js-and-harperdb-3738) <br>
 Dennis Ivy for hosting the Hackathon 
 
 #### Lessons 
