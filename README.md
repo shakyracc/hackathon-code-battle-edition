@@ -9,7 +9,7 @@ DevHire’s algorithm leverages advanced filtering and the Elo rating system to 
 We help hiring managers save time and money and accelerate towards faster growth in high-quality technology  development.
 
 ### Check out our [PitchDeck](https://github.com/shakyracornelius/hackathon-code-battle-edition/blob/main/DevHire%20Pitch%20Deck.pdf) ⚠️
-### Check out our [Demo Video](https://github.com/shakyracornelius/hackathon-code-battle-edition/blob/main/prototype/DevHire%20Demo.mp4)👀 apologies for the terrible audio 
+### Check out our [Demo Video](https://clipchamp.com/watch/ptE4j5VBw25) or download [here](https://github.com/shakyracornelius/hackathon-code-battle-edition/blob/main/prototype/DevHire%20Demo.mp4) 👀 apologies for the terrible audio 
 
 ## 🎯 Objective
 
