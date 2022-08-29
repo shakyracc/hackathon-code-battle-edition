@@ -168,13 +168,22 @@ exports.updateHiringManagerSearch = async (request, response) => {
 
     const formData = request.body.formData
 
+    console.log('form data', formData)
+
     try {
         const insertedHiringManager = await db.update(
             {
                 table: 'hiringmanagers',
                 records: [
                     {
-                        search: formData.search
+                        id: formData.hiring_manager_id,
+                        country: formData.country,
+                        role: formData.role,
+                        degree: formData.degree,
+                        availability: formData.availability,
+                        experience: formData.experience,
+                        available_from: formData.available_from,
+                        skills: formData.skills,
                     }
                 ]
             }
