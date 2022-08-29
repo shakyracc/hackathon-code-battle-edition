@@ -9,7 +9,7 @@ DevHire’s algorithm leverages advanced filtering and the Elo rating system to 
 We help hiring managers save time and money and accelerate towards faster growth in high-quality technology  development.
 
 ### Check out our [PitchDeck](https://github.com/shakyracornelius/hackathon-code-battle-edition/blob/main/DevHire%20Pitch%20Deck.pdf) ⚠️
-### Check out our [Demo Video]()
+### Check out our [Demo Video](https://github.com/shakyracornelius/hackathon-code-battle-edition/blob/main/prototype/DevHire%20Demo.mp4)👀 apologies for the terrible audio 
 
 ## 🎯 Objective
 
@@ -57,7 +57,7 @@ I initially thought I could tackle the problem with Django, but that flew out th
 
 I started out with MongoDB as the database because there's simply more documentation out there on it. As a complete noob, I needed all the help I could get. I ended up following a tutorial on a MERN Tinder clone by Code with Ania Kubów on [Youtube](https://www.youtube.com/watch?v=Q70IMS-Qnjk). It's 5 hours long, but it's safe to say I've cycled through it at least 7 times. Again. noob. Totally worth it though. 
 
-To understand what Ania was saying, I read the Javascript, React and Nodejs(pieace of at at least) handbooks by Flavio Copes @flaviocopes. 10/10 Highly recommend. 
+To understand what Ania was saying, I read the Javascript, React and Nodejs(piece of it at least) handbooks by Flavio Copes @flaviocopes. 10/10 Highly recommend. 
 
 After that I went back to the code and tried my best to understand each line, making modifications where necessary. Once I managed to turn the tinder clone into DevHire using MongoDB, I read up on HarperDB documentation. Oh...this last paragraph all happened today btw. I say that because I often allow myself to forget my hard work. Not today though. Today I really pushed to meet the Hackathon requirements and I feel really proud of what myself and @3fcc#1923 have produced. 
 
@@ -65,13 +65,13 @@ So yes, I got familiar with HarperDB through videos and documentation then gave 
 
 #### Tech Stack 
 
-HarperDB, MongoDB, Node.js, React.js, Express <br>
-Jira Software, Confluence, Zeplin, Google Meet, Github, Figma <br>
-Insomnia (I wish I knew about this at the start of the project. I would have saved soooo much time. I only discovered it today. Game changer
+🦴 HarperDB, MongoDB, Node.js, React.js, Express <br>
+🤝 Jira Software, Confluence, Zeplin, Google Meet, Github, Figma <br>
+🧰 Insomnia (I wish I knew about this at the start of the project. I would have saved soooo much time on backend work. I only discovered it today. Game changer)
 
 #### Team Work 
 
-I met @3fcc#1923 on reddit a few months ago when they were searching for a Dart programming language learning mate. Soon after that I stopped learning Dart and started learning Python. So we didn't speak for a while, until I stumbled upon this hackathon. I approached them to collaborate with me and to my delight they said yes 💃. They live 5 hours ahead of me, but we managed to make this work almost seamlessly. It was a pleasure working with a fellow knowledge hungry beginner to web development. We used Jira, Confluence, Zeplin, Whatsapp and Google meet to stay connected. We pitched ideas back and forth and gave words of encouragement along the way. 
+I met @3fcc#1923 on reddit a few months ago when they were searching for a Dart programming language learning mate. Soon after that I stopped learning Dart and started learning Python. So we didn't speak for a while, until I stumbled upon this hackathon. I approached them to collaborate with me and to my delight they said yes 💃. They live 5 hours ahead of me, but we managed to make this work almost seamlessly. It was a pleasure working with a fellow knowledge hungry beginner to web development. We used Jira, Confluence, Zeplin, Whatsapp and Google Meet to stay connected. We pitched ideas back and forth and gave words of encouragement along the way. 
 
 #### Acknowledgments 
 
@@ -82,7 +82,7 @@ Dennis Ivy for hosting the Hackathon
 
 #### Lessons 
 1. It's easy to get side tracked with cool ideas. "oh let me just add this function really quickly" turns into 5 hours of coding EASILY
-2. CSS is a time sink. don't get caught there for too long. tell a friend your diving in so they can reinforce a time limit. 
+2. CSS is a time sink. don't get caught there for too long. tell a friend you're diving in so they can reinforce a time limit. 
 3. Having a designer makes life WAYYYYYY easier as a full stack dev. Thank you @3fcc#1923 for taking on this challenge with me. 
 4. MVP MVP MVP MVP. I eliminated a block of code every time I sat down with the laptop. Too many bugs? can it. this is a prototype. I kept thinking, " there are gonna be so many experts in this competition, i NEEED working code and cool features to stand out"............garbage. Focus on your MVP. Refine the MVP if necessary. 
 5. Good project management tools help A LOT. They make remote team collaboration seemless. 
