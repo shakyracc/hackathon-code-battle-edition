@@ -48,11 +48,41 @@ It was an eye opening for me - collaborating with developers and I got to used a
 
 ### 👩🏽‍💻💭Developer Reflection 
 
+This hackathon was an incredible learning experience for me. Of the entire tech stack used to build this project, I only had experience in Jira and Github. @3fcc#1923 and I discoverd Zeplin together as a platform to share figma designs. 
+
+I initially thought I could tackle the problem with Django, but that flew out the door as soon as it became clear that connecting it to HarperDB was not going to be a beginner friendly task. Weird that I thought this and decided learning 2 stacks (MERN & HERN) was an easier route. 
+
+I started out with MongoDB as the database because there's simply more documentation out there on it. As a complete noob, I needed all the help I could get. I ended up following a tutorial on a MERN Tinder clone by Code with Ania Kubów on [Youtube](https://www.youtube.com/watch?v=Q70IMS-Qnjk). It's 5 hours long, but it's safe to say I've cycled through it at least 7 times. Again. noob. Totally worth it though. 
+
+To understand what Ania was saying, I read the Javascript, React and Nodejs(pieace of at at least) handbooks by Flavio Copes @flaviocopes. 10/10 Highly recommend. 
+
+After that I went back to the code and tried my best to understand each line, making modifications where necessary. Once I managed to turn the tinder clone into DevHire using MongoDB, I read up on HarperDB documentation. Oh...this last paragraph all happened today btw. I say that because I often allow myself to forget my hard work. Not today though. Today I really pushed to meet the Hackathon requirements and I feel really proud of what myself and @3fcc#1923 have produced. 
+
+So yes, I got familiar with HarperDB through videos and documentation then gave it a try. *queue emotional damage. It's simpler than MongoDB in a way I guess, but the lack of community and documentation makes it a HEADACHEEE. omg debugging was a nightmare, but now that I've done it, I feel like I can do it again with less distress. and what's up with the arrays? i couldn't figure out how to 1. query an array and 2. do conditional search on the entire db, not just a row or hashed value.
+
 #### Tech Stack 
+
+HarperDB, MongoDB, Node.js, React.js, Express 
+Jira Software, Confluence, Zeplin, Google Meet, Github, Figma
+
+#### Team Work 
+
+I met @3fcc#1923 on reddit a few months ago when they were searching for a Dart programming language learning mate. Soon after that I stopped learning Dart and started learning Python. So we didn't speak for a while, until I stumbled upon this hackathon. I approached them to collaborate with me and to my delight they said yes 💃. They live 5 hours ahead of me, but we managed to make this work almost seamlessly. It was a pleasure working with a fellow knowledge hungry beginner to web development. We used Jira, Confluence, Zeplin, Whatsapp and Google meet to stay connected. We pitched ideas back and forth and gave words of encouragement along the way. 
 
 #### Acknowledgments 
 
+[Code with Ania Kubów](https://www.youtube.com/watch?v=Q70IMS-Qnjk)
+[Flavio Copes](https://flaviocopes.com)
+[Aman Mittal](https://dev.to/amanhimself/build-a-rest-api-with-node-js-and-harperdb-3738)
+Dennis Ivy for hosting the Hackathon 
+
 #### Lessons 
+1. It's easy to get side tracked with cool ideas. "oh let me just add this function really quickly" turns into 5 hours of coding EASILY
+2. CSS is a time sink. don't get caught there for too long. tell a friend your diving in so they can reinforce a time limit. 
+3. Having a designer makes life WAYYYYYY easier as a full stack dev. Thank you @3fcc#1923 for taking on this challenge with me. 
+4. MVP MVP MVP MVP. I eliminated a block of code every time I sat down with the laptop. Too many bugs? can it. this is a prototype. I kept thinking, " there are gonna be so many experts in this competition, i NEEED working code and cool features to stand out"............garbage. Focus on your MVP. Refine the MVP if necessary. 
+5. Good project management tools help A LOT. They make remote team collaboration seemless. 
+
 
 
 
