@@ -1,17 +1,16 @@
 # Dennis Ivy Hackathon (Code Battle Edition)
 
 ## ✨ Elevator Pitch 
-Why our solution solves the problem <br>
 
-*[read more](https://github.com/shakyracornelius/hackathon-code-battle-edition#%EF%B8%8F-solution)* 
+Eliminating hiring managers’ efficiency barriers by providing a bespoke platform connecting them directly to leading, global developer talent. 
+
+DevHire’s algorithm leverages advanced filtering and the Elo rating system to principally present hiring managers with top-tier professionals. 
+
+We help hiring managers save time and money and accelerate towards faster growth in high-quality technology  development.
 
 ## 🎯 Objective
 
 [Option #2 -  Developer Search Website For Hiring Managers](https://github.com/divanov11/Hackathon---Code-Battle-Edition#%EF%B8%8F-option-2---developer-search-website-for-hiring-managers)
-
-## ⚙️ Solution 
-
-A tinder like application with algorithm displaying top devs first 
 
 ## 🎨 Design 
 
