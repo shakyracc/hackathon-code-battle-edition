@@ -62,8 +62,9 @@ So yes, I got familiar with HarperDB through videos and documentation then gave 
 
 #### Tech Stack 
 
-HarperDB, MongoDB, Node.js, React.js, Express 
-Jira Software, Confluence, Zeplin, Google Meet, Github, Figma
+HarperDB, MongoDB, Node.js, React.js, Express <br>
+Jira Software, Confluence, Zeplin, Google Meet, Github, Figma <br>
+Insomnia (I wish I knew about this at the start of the project. I would have saved soooo much time. I only discovered it today. Game changer
 
 #### Team Work 
 
