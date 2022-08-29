@@ -16,14 +16,18 @@ A tinder like application with algorithm displaying top devs first
 ## 🎨 Design 
 
 [Figma](https://www.figma.com/file/uEM1I2XF5mDI0L7SEdDml0/DENNIS-IVY-HACKATHON?node-id=0%3A1) <br>
-[Prototypes]()
+[Prototype](https://github.com/shakyracornelius/hackathon-code-battle-edition/tree/main/prototype)
+
+<img width="1728" alt="HOME - ADVANCE SEARCH" src="https://user-images.githubusercontent.com/108587575/187125682-9dfff299-8b74-43d2-9c66-7df4991296a4.png">
+<img width="1728" alt="HOME - MESSAGES" src="https://user-images.githubusercontent.com/108587575/187125694-f59ebf84-d8a2-424e-8d35-0837af9f911a.png">
+
 
 ## 👥 Team 
 
 Developer: [@shakyracc](https://www.twitter.com/shakyracc) <br>
 Designer: @3fcc#1923 discord
 
-## 🤝🏾 Team Collaboration Environment 
+### 🤝🏾 Team Collaboration Environment 
 
 ### Jira Software 
 ![Screenshot 2022-08-28 at 11 53 32 PM](https://user-images.githubusercontent.com/108587575/187119741-df417ddc-3181-4e1d-8e0b-ee950c0f5532.png)
