@@ -10,9 +10,13 @@ const Home = () => {
         navigate('/hiringmanagerhome')
     }
 
+    
+
     const developerHome = () => {
         navigate('/developerhome')
     }
+
+    
 
     return (
         <>

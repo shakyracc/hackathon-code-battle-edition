@@ -20,6 +20,7 @@ const HiringManagerHome = () => {
         }
         setShowModal(true)
         setIsSignUp(true)
+
     }
 
     return (
