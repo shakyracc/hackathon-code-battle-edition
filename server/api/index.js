@@ -231,6 +231,8 @@ exports.getDevelopers = async (request, response) => {
 
         const devresponse = foundDevelopers.data
 
+        console.log('developers: ', devresponse)
+
         response.json(devresponse)
 
     } catch (err) {

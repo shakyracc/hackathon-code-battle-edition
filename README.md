@@ -3,7 +3,7 @@
 ## ✨ Elevator Pitch 
 Why our solution solves the problem <br>
 
-*[read more]()* 
+*[read more](https://github.com/shakyracornelius/hackathon-code-battle-edition#%EF%B8%8F-solution)* 
 
 ## 🎯 Objective
 
@@ -16,7 +16,7 @@ A tinder like application with algorithm displaying top devs first
 ## 🎨 Design 
 
 [Figma](https://www.figma.com/file/uEM1I2XF5mDI0L7SEdDml0/DENNIS-IVY-HACKATHON?node-id=0%3A1) <br>
-[Screenshots]()
+[Prototypes]()
 
 ## 👥 Team 
 
