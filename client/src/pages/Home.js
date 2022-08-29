@@ -7,12 +7,10 @@ const Home = () => {
     let navigate = useNavigate()
 
     const hiringHome = () => {
-        console.log('clicked hiring manager')
         navigate('/hiringmanagerhome')
     }
 
     const developerHome = () => {
-        console.log('clicked developer')
         navigate('/developerhome')
     }
 

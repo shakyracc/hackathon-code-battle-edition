@@ -3,8 +3,6 @@ import { useEffect, useState } from 'react'
 import ChatContainer from '../components/ChatContainer'
 import { useCookies } from 'react-cookie'
 import axios from 'axios'
-import logo from '../images/Frame.png'
-import Nav from '../components/Nav'
 
 const HMDashboard = () => {
 
@@ -14,17 +12,17 @@ const HMDashboard = () => {
     const [cookies, setCookie, removeCookie] = useCookies(['hiringManager'])
 
     const hiringManagerId = cookies.HiringManagerId
-    const accountType = hiringManager?.interest
 
-    console.log('account type', accountType)
+
+
+    const hmInterest = hiringManager?.interest
 
     const getHiringManager = async () => {
         try {
-            const response = await axios.get('http://localhost:8000/hiring-manager', {
-                params: {
-                    hiringManagerId
-                }
-            })
+            const response = await axios.post('http://localhost:8000/get-hiring-manager', {
+                hiringManagerId
+            })  
+
             setHiringManager(response.data)
 
         } catch (error) {
@@ -35,10 +33,8 @@ const HMDashboard = () => {
     const getDevelopers = async () => {
 
         try {
-            const response = await axios.get('http://localhost:8000/developers', {
-                params: { 
-                    accountType
-                }
+            const response = await axios.post('http://localhost:8000/get-developers', {
+                hmInterest
             })
 
             setDevelopers(response.data)
@@ -50,9 +46,9 @@ const HMDashboard = () => {
 
     useEffect(() => {
         getHiringManager()
-
     }, [])
 
+    
     useEffect(() => {
         if (hiringManager) {
             getDevelopers()
@@ -62,7 +58,7 @@ const HMDashboard = () => {
 
     const updateMatches = async (matchedDeveloperId) => {
         try {
-            await axios.put('http://localhost:8000/add-hm-match', {
+            await axios.post('http://localhost:8000/add-hm-match', {
                 hiringManagerId,
                 matchedDeveloperId
             })
@@ -83,23 +79,13 @@ const HMDashboard = () => {
         console.log(name + ' left the screen!')
     }
 
-    const matchedDeveloperIds = hiringManager?.matches.map(({ developer_id }) => developer_id).concat(hiringManagerId)
-
-    const filteredDevelopers = developers?.filter(
-        developer => !matchedDeveloperIds.includes(developer.developer_id))
-
-        //filtering each developer in the developers aray.
-        //if developer is not included in the matcheddeveloperids array then we can include it
-
-    console.log('filteredDevelopers ', filteredDevelopers)
-
     return (
         <>
             {hiringManager &&
                 <div className="try">
 
                     <div className="dashboard">
-                        <ChatContainer hiringManager={hiringManager}/>
+                        <ChatContainer hiringManager={hiringManager} />
                         <div className="swipe-container">
                             <div className="card-container">
 
@@ -109,36 +95,36 @@ const HMDashboard = () => {
                                 </div>
 
 
-                                {filteredDevelopers?.map((developer) =>
+                                {developers?.map((developer) =>
 
-
+                                    
                                     <TinderCard
-                                        className="swipe"
-                                        key={developer.developer_id}
-                                        onSwipe={(dir) => swiped(dir, developer.developer_id)}
-                                        onCardLeftScreen={() => outOfFrame(developer.first_name)}>
-                                        <div
-                                            style={{ backgroundImage: "url(" + developer.url + ")" }}
-                                            className="card">
-                                            <h3>{developer.first_name}</h3>
-                                        </div>
+                                        // className="swipe"
+                                        // key={developer.first_name}
+                                        // onSwipe={(dir) => swiped(dir, developer.id)}
+                                        // onCardLeftScreen={() => outOfFrame(developer.first_name)}>
+                                        // <div
+                                        //     style={{ backgroundImage: "url(" + developer.url + ")" }}
+                                        //     className="card">
+                                        //     <h3>{developer.first_name}</h3>
+                                        // </div>
 
 
-                                        {/* className='swipe'
-                                        key={user.user_id}
-                                        onSwipe={(dir) => swiped(dir, user.user_id)}
-                                        onCardLeftScreen={() => outOfFrame(user.user_id)}>
+                                         className='swipe'
+                                        key={developer.first_nam}
+                                        onSwipe={(dir) => swiped(dir, developer.id)}
+                                        onCardLeftScreen={() => outOfFrame(developer.first_nam)}>
                                         <div className='dev-card'>
                                             <div className='dev-card-info'>
                                                 <div className='profile-photo'>
                                                     <div className="profile-photo-container">
-                                                        <img src={user.url} alt={"photo of " + user.first_name} />
+                                                        <img src={developer.url} alt={"photo of " + developer.first_name} />
                                                     </div>
                                                 </div>
                                                 <div className='dev-sum'>
-                                                    <h3>Jack</h3>
+                                                    <h3>{developer?.first_name}</h3>
                                                     <h2>Full-Stack Developer</h2>
-                                                    <p> Hello, I'm Jack, and I'm a Software Engineer. I have 5 years of experience in software development, hands-on experience creating and imple...
+                                                    <p> Hello, I'm {developer?.first_name}, and I'm a Software Engineer. I have 5 years of experience in software development, hands-on experience creating and imple...
                                                     </p>
                                                 </div>
 
@@ -168,14 +154,17 @@ const HMDashboard = () => {
 
                                             </div>
 
-                                        </div> */}
+                                        </div>
                                     </TinderCard>
                                 )}
+                            
                                 <div className="swipe-info">
                                     {lastDirection ? <p>You swiped {lastDirection}</p> : <p />}
                                 </div>
                             </div>
                         </div>
+
+                        
                         <div className='dev-details-container'> {/*chat-container*/}
 
                             <div className='dev-details-container-header'> {/*chat-container-header*/}

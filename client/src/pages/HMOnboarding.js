@@ -11,16 +11,16 @@ const HMOnboarding = () => {
         hiring_manager_id: cookies.HiringManagerId,
         first_name: "",
         account_type: "hiring-manager",
-        country: "all",
-        role: "all",
-        degree: "all",
-        availability: "all",
-        experience: "all",
-        available_from: "all",
-        skills: "all",
+        country: "",
+        role: "a",
+        degree: "",
+        availability: "",
+        experience: "",
+        available_from: "",
+        skills: "",
         interest: "developer",
         url: "",
-        matches: []
+        matches: "",
 
     })
 
@@ -30,8 +30,9 @@ const HMOnboarding = () => {
         console.log('submitted')
         e.preventDefault()
         try {
-            const response = await axios.put('http://localhost:8000/hiring-manager', { formData })
-            console.log(response)
+            const response = await axios.post('http://localhost:8000/update-hiring-manager', {
+                formData
+            })
             const success = response.status === 200
             if (success) navigate('/hm-dashboard')
         } catch (err) {
@@ -88,7 +89,6 @@ const HMOnboarding = () => {
                         </div>
 
                         <input type="submit" />
-
                     </section>
 
                 </form>

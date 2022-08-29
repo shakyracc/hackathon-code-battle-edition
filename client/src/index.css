@@ -380,7 +380,7 @@ nav .nav-button:disabled {
   background-color: rgb(255, 255, 255);
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   width: 50%;
-  height: 900px;
+  height: auto;
   text-align: left;
   z-index: 1;
 }
@@ -895,26 +895,73 @@ flex-wrap: wrap;
   justify-content: right;
 }
 
-.advanced-search {
+.advanced-search form {
   display: flex;
-  justify-content: left;
+  justify-content: center;
 }
 
-/* .advanced-search button {
-  pointer-events: none;
-  background-color: #ffffff;
-  color: #000000;
-  padding: 5px 10px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 10px;
+.advanced-search form section {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: auto;
+  text-align: start;
+}
+
+.advanced-search form select,
+.advanced-search form input {
+  appearance: none;
+  padding: 15px 30px;
+  margin: 10px 0;
+  font-size: 15px;
+  border: solid 2px rgb(219, 219, 219);
+  border-radius: 10px;
+}
+
+.advanced-search form input::-webkit-outer-spin-button,
+.advanced-search form input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.advanced-search form label {
+  margin: 10px 0;
+}
+
+.advanced-search form .multiple-input-container {
+  display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  margin-right: 2px;
-  margin-left: 2px;
-  margin-bottom: 2px;
-  border-radius: 25px;
-  border: solid 1px #000;
-} */
+}
+
+.advanced-search form .multiple-input-container input {
+  margin-right: 10px;
+}
+
+.advanced-search form .multiple-input-container label {
+  padding: 10px;
+  border: solid 2px rgb(144, 144, 144);
+  border-radius: 10px;
+  transition: all 0.3s;
+  margin-right: 10px;
+}
+
+.advanced-search form input[type="radio"] {
+  display: none;
+}
+
+.advanced-search form input[type="number"] {
+  width: 10%;
+}
+
+.advanced-search form input[type="radio"]:checked+label {
+  border: solid 2px rgb(221, 39, 22);
+}
+
+.advanced-search form input[type="submit"]:hover {
+  background-color: rgb(235, 235, 235);
+}
+
+.advanced-search form input[type="submit"]:active {
+  background-color: rgb(235, 115, 115);
+}
 

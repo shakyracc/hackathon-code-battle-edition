@@ -1,6 +1,5 @@
 import ChatHeader from './ChatHeader'
 import AdvancedSearch from './AdvancedSearch'
-import MatchesDisplay from './MatchesDisplay'
 import Favourites from './Favourites'
 import Messages from './Messages'
 import ChatDisplay from './ChatDisplay'
@@ -14,7 +13,6 @@ const ChatContainer = ({ hiringManager }) => {
 
 
     const handleClick = (e) => {
-        console.log('click window')
         
         const value = e.target.value
         

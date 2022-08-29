@@ -13,9 +13,6 @@ const HiringManagerAuthModal = ({ setShowModal, isSignUp }) => {
 
     let navigate = useNavigate()
 
-    console.log(email, password, confirmPassword)
-
-
     const handleClick = () => {
         setShowModal(false)
     }
@@ -30,12 +27,8 @@ const HiringManagerAuthModal = ({ setShowModal, isSignUp }) => {
                 return
             }
 
-            console.log(email, password)
-
             const response = await axios.post(`http://localhost:8000/${isSignUp ? 'hm-signup' : 'hm-login'}`, { email, password })
 
-            console.log(response)
-            
             setCookie('HiringManagerAuthToken', response.data.token)
             setCookie('HiringManagerId', response.data.hiringManagerId)
 

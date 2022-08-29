@@ -13,9 +13,6 @@ const DeveloperAuthModal = ({ setShowModal, isSignUp }) => {
 
     let navigate = useNavigate()
 
-    console.log(email, password, confirmPassword)
-
-
     const handleClick = () => {
         setShowModal(false)
     }
@@ -31,7 +28,6 @@ const DeveloperAuthModal = ({ setShowModal, isSignUp }) => {
 
             const response = await axios.post(`http://localhost:8000/${isSignUp ? 'dev-signup' : 'dev-login'}`, { email, password })
 
-            console.log(response)
             setCookie('DeveloperAuthToken', response.data.token)
             setCookie('DeveloperId', response.data.developerId)
 

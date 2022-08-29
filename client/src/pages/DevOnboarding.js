@@ -21,7 +21,7 @@ const OnBoarding = () => {
         interest: "hiring-manager",
         url: "",
         about: "",
-        matches: []
+        matches: "",
 
     })
 
@@ -31,7 +31,7 @@ const OnBoarding = () => {
         console.log('submitted')
         e.preventDefault()
         try {
-            const response = await axios.put('http://localhost:8000/developer', { formData })
+            const response = await axios.post('http://localhost:8000/update-developer', { formData })
             console.log(response)
             const success = response.status === 200
             if (success) navigate('/dev-dashboard')
