@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "react-country-dropdown": "^1.0.4",
-    "react-country-region-selector": "^3.6.1"
+    "bcrypt": "^5.0.1",
+    "react-country-dropdown": "^1.0.4"
   }
 }
