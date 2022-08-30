@@ -29,6 +29,12 @@ Hiring Managers are spending a great amount of their valuable time searching Lin
 - Detailed developer profiles 
 - Search privately 
 
+## Tech Stack 
+
+Backend: 🟪 Heroku, 🐶 HarperDB, 🔗 Node.js, 🧩 Express, 🟣 Insomnia <br>
+Frontend: 🔷 Netlify, ⚛️ React.js, 🎨 Figma, 🎈 Zeplin <br>
+Project Management: 🔷 Jira Software, 🔷 Confluence, 🚥 Google Meet, 📦 Github <br>
+
 ## 🎨 Design 
 
 ### [Figma](https://www.figma.com/file/uEM1I2XF5mDI0L7SEdDml0/DENNIS-IVY-HACKATHON?node-id=0%3A1) <br>
@@ -36,6 +42,8 @@ Hiring Managers are spending a great amount of their valuable time searching Lin
 
 <img width="1728" alt="HOME - ADVANCE SEARCH" src="https://user-images.githubusercontent.com/108587575/187125682-9dfff299-8b74-43d2-9c66-7df4991296a4.png">
 <img width="1728" alt="HOME - MESSAGES" src="https://user-images.githubusercontent.com/108587575/187125694-f59ebf84-d8a2-424e-8d35-0837af9f911a.png">
+![Screenshot 2022-08-29 at 12 36 28 AM](https://user-images.githubusercontent.com/108587575/187455849-c2f275ac-72ca-4bcc-b1e0-0f69117ef83d.png)
+
 
 
 ## 👥 Team 
