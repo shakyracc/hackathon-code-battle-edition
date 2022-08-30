@@ -6,11 +6,7 @@ const express = require('express')
 //...further actions on them. A very useful and essential step when using forms in a web application.
 const bodyParser = require('body-parser');
 
-const { MongoClient } = require('mongodb')
-const { v4: uuidv4 } = require('uuid')
-const jwt = require('jsonwebtoken')
 const cors = require('cors')
-const bcrypt = require('bcrypt')
 require('dotenv').config()
 
 const routesController = require('./api/index')
