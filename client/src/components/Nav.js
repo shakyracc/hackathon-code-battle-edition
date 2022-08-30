@@ -22,11 +22,11 @@ const Nav = ({ minimal, setShowModal, showModal, setIsSignUp }) => {
                 <img className="logo" src={minimal ? logo : logo2} />
             </div>
 
-            {!authToken && !minimal && <button
+            {/* {!authToken && !minimal && <button
                 className='nav-button'
                 onClick={handleClick}
                 disabled={showModal}
-            >Log in</button>}
+            >Log in</button>} */}
 
         </nav>
     )
