@@ -1,12 +1,8 @@
 # Dennis Ivy Hackathon (Code Battle Edition)
 
-## ✨ Elevator Pitch 
-
-Eliminating hiring managers’ efficiency barriers by providing a bespoke platform connecting them directly to leading, global developer talent. 
-
-DevHire’s algorithm leverages advanced filtering and the Elo rating system to principally present hiring managers with top-tier professionals. 
-
-We help hiring managers save time and money and accelerate towards faster growth in high-quality technology  development.
+| ✨ Elevator Pitch ✨     |
+|    :----:   |
+| Eliminating hiring managers’ efficiency barriers by providing a bespoke platform connecting them directly to leading, developer talent. DevHire’s algorithm leverages advanced filtering and the Elo rating system to principally present hiring managers with top-tier professionals. We help hiring managers save time and money and accelerate towards faster growth in high-quality technology  development.     |
 
 ### 🔥 Check out our: 
 - [PitchDeck](https://github.com/shakyracornelius/hackathon-code-battle-edition/blob/main/DevHire%20Pitch%20Deck.pdf)
