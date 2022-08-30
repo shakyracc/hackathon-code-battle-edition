@@ -18,7 +18,7 @@ const routesController = require('./api/index')
 // the app is an object provided by Express API for the developer to communicate with the application and bootstrap a server.
 const app = express()
 
-app.listen(process.env.PORT || 8000);
+
 
 app.use(cors())
 app.use(express.json())
@@ -576,3 +576,5 @@ app.route('/hm-matches').post(routesController.getHiringManagerMatches)
 
 
 // app.listen(PORT, () => console.log('server running on PORT ' + PORT))
+
+app.listen(process.env.PORT || 8000);
