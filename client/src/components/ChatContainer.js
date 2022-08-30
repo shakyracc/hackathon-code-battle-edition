@@ -1,3 +1,5 @@
+// Contains the user profile name, image, search, favourites and messages
+
 import ChatHeader from './ChatHeader'
 import AdvancedSearch from './AdvancedSearch'
 import Favourites from './Favourites'
@@ -6,10 +8,10 @@ import ChatDisplay from './ChatDisplay'
 import { useState } from 'react'
 
 const ChatContainer = ({ hiringManager }) => {
-    const [clickedUser, setClickedUser] = useState(null)
-    const [advancedSearchWindow, setAdvancedSearchWindow] = useState(null)
-    const [favouritesWindow, setFavouritesWindow] = useState(null)
-    const [messagesWindow, setMessagesWindow] = useState(null)
+    const [clickedUser, setClickedUser] = useState(null) //used to open messages
+    const [advancedSearchWindow, setAdvancedSearchWindow] = useState(null) //used to open advances search window
+    const [favouritesWindow, setFavouritesWindow] = useState(null) //used to open favourites window
+    const [messagesWindow, setMessagesWindow] = useState(null) //used to open messages window
 
 
     const handleClick = (e) => {

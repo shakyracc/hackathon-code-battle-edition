@@ -1,9 +1,10 @@
+// Contains form that allows hiring manager to enter their preferences 
+
 import { useState } from "react"
 import { useCookies } from 'react-cookie'
 import axios from 'axios'
 
 const AdvancedSearch = () => {
-    const [email, setEmail] = useState(null)
     const [cookies, setCookie, removeCookie] = useCookies(null)
     const [formData, setformData] = useState({
         hiring_manager_id: cookies.HiringManagerId,
@@ -16,14 +17,7 @@ const AdvancedSearch = () => {
         skills: "",
     })
 
-    const [country, setCountry] = useState(null)
-    const [role, setRole] = useState(null)
-    const [degree, setDegree] = useState(null)
-    const [availability, setAvailability] = useState(null)
-    const [experience, setExperience] = useState(null)
-    const [available_from, setAvailable_from] = useState(null)
-    const [skills, setSkills] = useState(null)
-
+    // Updates the hiring manager search preferences on submite 
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
@@ -37,6 +31,7 @@ const AdvancedSearch = () => {
         }
     }
 
+    // updates the formData when buttons are selected 
     const handleChange = (e) => {
         const value = e.target.type === "checkbox" ? e.target.checked : e.target.value
         const name = e.target.name
@@ -45,19 +40,13 @@ const AdvancedSearch = () => {
             ...prevState,
             [name]: value
         }))
-
-
     }
 
     return (
         <>
-
             <div className="advanced-search">
-
                 <form onSubmit={handleSubmit}>
-
                     <section>
-
                         <label>Country</label>
                         <div className="multiple-input-container">
                             <input
@@ -244,15 +233,10 @@ const AdvancedSearch = () => {
 
                         <input type="submit" />
 
-                </section>
-            </form>
-
+                    </section>
+                </form>
             </div>
-
         </>
-
-
-
     )
 }
 

@@ -1,3 +1,5 @@
+//The page anyone sees regardless of if they're logged in or not
+
 import Nav from '../components/Nav'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -10,13 +12,9 @@ const Home = () => {
         navigate('/hiringmanagerhome')
     }
 
-    
-
     const developerHome = () => {
         navigate('/developerhome')
     }
-
-    
 
     return (
         <>

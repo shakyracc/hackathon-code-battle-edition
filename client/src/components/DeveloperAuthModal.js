@@ -1,9 +1,14 @@
+// The pop up form that displays when the user clicks "create account" or "login"
+
+// It includes a form that captures the email and password of the user to update the database
+
 import { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { useCookies } from 'react-cookie'
 
-
+// If isSignUp is true the modal will display a create account form to insert a new row in the database
+// If isSignup is false the modal will display a login form to retrieve their userId from the database to add to the browser cookies
 const DeveloperAuthModal = ({ setShowModal, isSignUp }) => {
     const [email, setEmail] = useState(null)
     const [password, setPassword] = useState(null)
@@ -14,7 +19,7 @@ const DeveloperAuthModal = ({ setShowModal, isSignUp }) => {
     let navigate = useNavigate()
 
     const handleClick = () => {
-        setShowModal(false)
+        setShowModal(false) //closes the authmodal
     }
 
     const handleSubmit = async (e) => {
@@ -26,6 +31,7 @@ const DeveloperAuthModal = ({ setShowModal, isSignUp }) => {
                 return
             }
 
+            //posts to the developer signup and login operations in the backend
             const response = await axios.post(`http://localhost:8000/${isSignUp ? 'dev-signup' : 'dev-login'}`, { email, password })
 
             setCookie('DeveloperAuthToken', response.data.token)

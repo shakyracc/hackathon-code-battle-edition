@@ -1,6 +1,8 @@
+// Should display the users direct messages 
+
 const Messages = () => {
     return (
-        <div>Messages</div>
+        <div>Messages will live here</div>
     )
 
 }

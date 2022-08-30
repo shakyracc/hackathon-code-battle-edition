@@ -1,3 +1,5 @@
+// This page includes a form that updates the hiring manager information in the database
+
 import Nav from '../components/Nav'
 import { useState } from 'react'
 import { useCookies } from 'react-cookie'
@@ -6,7 +8,7 @@ import axios from 'axios'
 
 
 const HMOnboarding = () => {
-    const [cookies, setCookie, removeCookie] = useCookies(null)
+    const [cookies, setCookie, removeCookie] = useCookies(null) //for retrieving the hiringManagerId
     const [formData, setFormData] = useState({
         hiring_manager_id: cookies.HiringManagerId,
         first_name: "",
@@ -22,24 +24,28 @@ const HMOnboarding = () => {
         url: "",
         matches: "",
 
-    })
+    }) // sets interests to developer which means that they will only see developers on their dashboard
 
     let navigate = useNavigate()
 
+    // When the submit button is clicked, the contents of the form are passed to the hiring manager's row in the database table
     const handleSubmit = async (e) => {
         console.log('submitted')
         e.preventDefault()
         try {
             const response = await axios.post('http://localhost:8000/update-hiring-manager', {
                 formData
-            })
+            }) //use axios.post because harperdb always expects post requests. 
+
             const success = response.status === 200
             if (success) navigate('/hm-dashboard')
+            
         } catch (err) {
             console.log(err)
         }
     }
 
+    // when data is inputed into the form, the formData value is updated.
     const handleChange = (e) => {
         console.log('e', e)
         const value = e.target.type === "checkbox" ? e.target.checked : e.target.value

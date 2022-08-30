@@ -1,6 +1,11 @@
 const PORT = 8000
 const express = require('express')
+
+// To set up routes or endpoints of the server application, you need to include body-parser in the index.js.
+// ...BodyParser parses incoming HTTP requests as middleware under req.body before routes or API have access to them and perform any 
+//...further actions on them. A very useful and essential step when using forms in a web application.
 const bodyParser = require('body-parser');
+
 const { MongoClient } = require('mongodb')
 const { v4: uuidv4 } = require('uuid')
 const jwt = require('jsonwebtoken')
@@ -10,18 +15,23 @@ require('dotenv').config()
 
 const routesController = require('./api/index')
 
+// the app is an object provided by Express API for the developer to communicate with the application and bootstrap a server.
 const app = express()
+
+app.listen(process.env.PORT || 8000);
+
 app.use(cors())
 app.use(express.json())
 
+//The urlencoded method in the below snippet allows the body-parser middleware to extract data from form fields. 
+//...In the REST client such as Postman or Insomnia, it is possible to send the data as form fields. 
+//...The json method allows the JSON data to be extracted.
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 
-// app.route('/books').post(routesController.addBook)
-// app.route('/author').post(routesController.getByAuthor)
-// app.route('/search').post(routesController.getById)
-// app.route('/delete').post(routesController.deleteBook)
+app.get('/', (req, res) => { res.send('Hello from Express!') })
 
+app.route('/get-all-hiring-managers').post(routesController.getAllHiringManagers)
 app.route('/hm-signup').post(routesController.addHiringManagerSignup)
 app.route('/dev-signup').post(routesController.addDeveloperSignup)
 
@@ -41,9 +51,9 @@ app.route('/hm-matches').post(routesController.getHiringManagerMatches)
 
 
 // Default
-app.get('/', (req, res) => {
-    res.json('Express server')
-})
+// app.get('/', (req, res) => {
+//     res.json('Express server')
+// })
 
 // //Hiring Manager Sign up to the Database 
 // app.post('/hm-signup', async (req, res) => {

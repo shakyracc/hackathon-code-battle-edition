@@ -1,3 +1,11 @@
+// Landing page when a hiring manager is logged in
+
+// The page includes on the left a container for search, favourites and messages. 
+// ... in the middle a TinderCard for swiping through developers 
+// ... on the right a container for profile details of the current developer 
+
+// It contains dummy data for prototyping 
+
 import TinderCard from 'react-tinder-card'
 import { useEffect, useState } from 'react'
 import ChatContainer from '../components/ChatContainer'
@@ -11,18 +19,21 @@ const HMDashboard = () => {
     const [lastDirection, setLastDirection] = useState()
     const [cookies, setCookie, removeCookie] = useCookies(['hiringManager'])
 
-    const hiringManagerId = cookies.HiringManagerId
+    const hiringManagerId = cookies.HiringManagerId //set hiringManagerId from the browser cookies
 
+    // set hmInterest to the interest specified on the HMOnboarding page.
+    // this will be passed to the backend to return the corresponding users to the dashboard
+    const hmInterest = hiringManager?.interest 
 
-
-    const hmInterest = hiringManager?.interest
-
+    // uses the hiringManagerId to fetch the profile details of that hiringManager
+    // the returned response is used to populate the chat, profile photo, favourites etc...
     const getHiringManager = async () => {
         try {
             const response = await axios.post('http://localhost:8000/get-hiring-manager', {
                 hiringManagerId
             })  
 
+            // sets hiringManager to the profile details return from the axios.post request
             setHiringManager(response.data)
 
         } catch (error) {
@@ -30,6 +41,7 @@ const HMDashboard = () => {
         }
     }
 
+    // uses the hiring managers interest to fetch and return all corresponding users to the dashboard search results
     const getDevelopers = async () => {
 
         try {
@@ -37,6 +49,7 @@ const HMDashboard = () => {
                 hmInterest
             })
 
+            // response returns an array of developers to display on the dashboard 
             setDevelopers(response.data)
 
         } catch (error) {
@@ -46,7 +59,7 @@ const HMDashboard = () => {
 
     useEffect(() => {
         getHiringManager()
-    }, [])
+    }, []) 
 
     
     useEffect(() => {
@@ -56,6 +69,7 @@ const HMDashboard = () => {
     }, [hiringManager])
 
 
+    // updates the hiring managers matches field when they swipe right on a use with the developerId
     const updateMatches = async (matchedDeveloperId) => {
         try {
             await axios.post('http://localhost:8000/add-hm-match', {
@@ -68,6 +82,7 @@ const HMDashboard = () => {
         }
     }
 
+    // function from the TinderCard library.  If swipe direction is right, update matches. 
     const swiped = (direction, swipedDeveloperId) => {
         if (direction === 'right') {
             updateMatches(swipedDeveloperId)

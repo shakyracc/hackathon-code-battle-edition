@@ -2,6 +2,25 @@ const db = require('../config/dbconfig')
 const jwt = require('jsonwebtoken')
 const { v4: uuidv4 } = require('uuid')
 const bcrypt = require('bcrypt')
+const { restart } = require('nodemon')
+
+const SCHEMA = process.env.INSTANCE_SCHEMA
+const HIRINGMANAGERTABLE = 'hiringmanagers'
+const DEVELOPERTABLE = 'developers'
+
+//get-all-hiring-managers
+exports.getAllHiringManagers = async (request, response) => {
+    console.log('getAll: [GET] /users/')
+
+    try{
+        const QUERY = `SELECT * FROM ${SCHEMA}.${HIRINGMANAGERTABLE}`
+        const hiringManagers = await db.query(QUERY)
+        response.json(hiringManagers)
+    } catch (error) {
+        console.log('ERROR in getAll ' + 'USER:', error)
+        return response.status(500).json(error)
+    }
+}
 
 //hm-signup
 exports.addHiringManagerSignup = async (request, response) => {

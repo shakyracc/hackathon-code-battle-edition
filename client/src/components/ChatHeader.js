@@ -1,35 +1,19 @@
-// import { useState } from 'react'
+// Contains user profile and logout button 
+
+import { useState } from 'react'
 import { useCookies } from 'react-cookie'
-// import { useNavigate } from 'react-router-dom'
-// import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 
 const ChatHeader = ({ hiringManager }) => {
     const [cookies, setCookies, removeCookie] = useCookies(['hiringManager'])
-    // const [error] = useState(null)
 
-    // let navigate = useNavigate()
-
+    //log out button clears cookies 
     const logout = () => {
         removeCookie('HiringManagerId', cookies.HiringManagerId)
         removeCookie('HiringManagerAuthToken', cookies.HiringManagerAuthToken)
         window.location.reload()
-        // navigate('/')
-
-        // console.log('logout')
-        // e.preventDefault()
-        // try {
-        //     const response = await axios.post('http://localhost:8000/logout')
-        //     const success = response.status === 200
-        //     if (success) navigate('/')
-
-        //     window.location.reload()
-
-
-        // } catch (error) {
-        //     console.log(error)
-        // }
-
     }
 
     return (
@@ -45,21 +29,6 @@ const ChatHeader = ({ hiringManager }) => {
                     <i className="log-out-icon" onClick={logout}>⇦</i>
                 </div>
             </div>
-            {/* <div className='search'>
-                <input
-                    type="text"
-                    placeholder=""
-                    onChange={""}
-                    value={""}
-                />
-            </div> */}
-            
-            {/* <div className='filter'>
-                <button className="filter-button">Advanced Search</button>
-                <button className="filter-button">Favourite</button>
-                <button className="filter-button">Messages</button>
-            </div> */}
-
         </div>
     )
 }

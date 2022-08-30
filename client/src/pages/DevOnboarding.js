@@ -1,3 +1,5 @@
+// This page includes a form that updates the developer information in the database
+
 import Nav from '../components/Nav'
 import { useState } from 'react'
 import { useCookies } from 'react-cookie'
@@ -27,6 +29,7 @@ const OnBoarding = () => {
 
     let navigate = useNavigate()
 
+    // When the submit button is clicked, the contents of the form are passed to the developers's row in the database table
     const handleSubmit = async (e) => {
         console.log('submitted')
         e.preventDefault()
@@ -40,6 +43,7 @@ const OnBoarding = () => {
         }
     }
 
+    // when data is inputed into the form, the formData value is updated.
     const handleChange = (e) => {
         console.log('e', e)
         const value = e.target.type === "checkbox" ? e.target.checked : e.target.value

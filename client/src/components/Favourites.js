@@ -1,15 +1,20 @@
+// Contains a display of the hiring managers matches 
+
+// This only displays a single match for now as I haven't figured out how make and query
+// ...an array field in a row in a harperdb database table. 
+
+// It contains dummy data for prototyping 
+
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { useCookies } from "react-cookie"
 
 const Favourites = ({ matches }) => {
 
     const [matchedProfile, setMatchedProfile] = useState(null)
-    const [cookies, setCookie, removeCookie] = useCookies(null)
 
     const matchedDeveloperId = matches
-    const hiringManagerId = cookies.HiringManagerId
 
+    // gets the developer with the corresponding developer Id from the database 
     const getMatchedDevelopers = async () => {
         try {
             const response = await axios.post("http://localhost:8000/get-matched-developers", {
@@ -54,16 +59,10 @@ const Favourites = ({ matches }) => {
                             <button className='dev-availability'>Available now</button>
                         </div>
                     </div>
-
                 </div>
-
             ))}
-
-
         </div>
-
     )
-
 }
 
 export default Favourites
