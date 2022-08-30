@@ -4,7 +4,6 @@ import ChatHeader from './ChatHeader'
 import AdvancedSearch from './AdvancedSearch'
 import Favourites from './Favourites'
 import Messages from './Messages'
-import ChatDisplay from './ChatDisplay'
 import { useState } from 'react'
 
 const ChatContainer = ({ hiringManager }) => {
