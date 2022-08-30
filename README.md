@@ -1,8 +1,8 @@
-# Dennis Ivy Hackathon (Code Battle Edition)
+# [Dennis Ivy Hackathon (Code Battle Edition)](https://github.com/divanov11/Hackathon---Code-Battle-Edition#%EF%B8%8F-option-2---developer-search-website-for-hiring-managers)
 
 | ✨ Elevator Pitch ✨     |
 |    :----:   |
-| Eliminating hiring managers’ efficiency barriers by providing a bespoke platform connecting them directly to leading, developer talent. DevHire’s algorithm leverages advanced filtering and the Elo rating system to principally present hiring managers with top-tier professionals. We help hiring managers save time and money and accelerate towards faster growth in high-quality technology  development.     |
+| Eliminating hiring managers’ efficiency barriers by providing a bespoke platform connecting them directly to leading, developer talent. DevHire’s algorithm leverages advanced filtering and the Elo rating system to principally present hiring managers with top-tier professionals. We help hiring managers save time and money and accelerate towards faster growth in high-quality technological development.     |
 
 ## ❗️[LIVE SITE](https://devhire-hackathon.netlify.app)❗️
 
@@ -12,9 +12,22 @@
 - [Prototype PDF](https://github.com/shakyracornelius/hackathon-code-battle-edition/blob/main/DevHire%20Prototype.pdf)
 - [Figma](https://www.figma.com/file/uEM1I2XF5mDI0L7SEdDml0/DENNIS-IVY-HACKATHON?node-id=0%3A1) <br>
 
-## 🎯 Objective
+## 👎🏾 The Problem 
 
-[Option #2 -  Developer Search Website For Hiring Managers](https://github.com/divanov11/Hackathon---Code-Battle-Edition#%EF%B8%8F-option-2---developer-search-website-for-hiring-managers)
+Hiring Managers are spending a great amount of their valuable time searching LinkedIn and GitHub for developers...time they could be spending driving their companies towards success.  The search on these platforms can be quite frustrating as they do not allow for advanced filtering for specific needs. LinkedIn offers limited privacy while searching and can often inclued spammy requests.
+
+## 🎯 The Solution 
+
+- Tinder-like application 
+- Wide variety of tech stacks to choose from.
+- User inputs create new stack tags. 
+- Advanced Filtering (skills, location, experience etc... 
+- Elo rating system 
+- Favourite / Shortlist talents 
+- Mutual connections 
+- Direct messaging only upon mutual connection  
+- Detailed developer profiles 
+- Search privately 
 
 ## 🎨 Design 
 
