@@ -1,7 +1,7 @@
 const db = require('../config/dbconfig')
 const jwt = require('jsonwebtoken')
 const { v4: uuidv4 } = require('uuid')
-const bcrypt = require('bcrypt')
+// const bcrypt = require('bcrypt')
 const { restart } = require('nodemon')
 
 const SCHEMA = process.env.INSTANCE_SCHEMA
@@ -28,7 +28,8 @@ exports.addHiringManagerSignup = async (request, response) => {
     const password = request.body.password
 
     const generatedHiringManagerId = uuidv4()
-    const hashedPassword = await bcrypt.hash(password, 10)
+    // const hashedPassword = await bcrypt.hash(password, 10)
+    const hashedPassword = password
 
     try {
 
@@ -72,7 +73,8 @@ exports.addDeveloperSignup = async (request, response) => {
 
 
     const generatedDeveloperId = uuidv4()
-    const hashedPassword = await bcrypt.hash(password, 10)
+    // const hashedPassword = await bcrypt.hash(password, 10)
+    const hashedPassword = password
 
     try {
 
