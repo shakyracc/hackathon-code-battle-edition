@@ -40,6 +40,7 @@ Project Management: 🔷 Jira Software, 🔷 Confluence, 🚥 Google Meet, 📦 
 ### [Figma](https://www.figma.com/file/uEM1I2XF5mDI0L7SEdDml0/DENNIS-IVY-HACKATHON?node-id=0%3A1) <br>
 ### [Prototype](https://github.com/shakyracornelius/hackathon-code-battle-edition/blob/main/DevHire%20Prototype.pdf)
 
+![Screenshot 2022-08-30 at 10 17 22 AM](https://user-images.githubusercontent.com/108587575/187461704-ec276883-98f0-469d-9593-d9339ac7c8f3.png)
 <img width="1728" alt="HOME - ADVANCE SEARCH" src="https://user-images.githubusercontent.com/108587575/187125682-9dfff299-8b74-43d2-9c66-7df4991296a4.png">
 <img width="1728" alt="HOME - MESSAGES" src="https://user-images.githubusercontent.com/108587575/187125694-f59ebf84-d8a2-424e-8d35-0837af9f911a.png">
 
