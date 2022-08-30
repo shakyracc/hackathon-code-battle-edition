@@ -29,7 +29,7 @@ const HMDashboard = () => {
     // the returned response is used to populate the chat, profile photo, favourites etc...
     const getHiringManager = async () => {
         try {
-            const response = await axios.post('http://localhost:8000/get-hiring-manager', {
+            const response = await axios.post('https://gentle-dev-hire.herokuapp.com/get-hiring-manager', {
                 hiringManagerId
             })  
 
@@ -45,7 +45,7 @@ const HMDashboard = () => {
     const getDevelopers = async () => {
 
         try {
-            const response = await axios.post('http://localhost:8000/get-developers', {
+            const response = await axios.post('https://gentle-dev-hire.herokuapp.com/get-developers', {
                 hmInterest
             })
 
@@ -72,7 +72,7 @@ const HMDashboard = () => {
     // updates the hiring managers matches field when they swipe right on a use with the developerId
     const updateMatches = async (matchedDeveloperId) => {
         try {
-            await axios.post('http://localhost:8000/add-hm-match', {
+            await axios.post('https://gentle-dev-hire.herokuapp.com/add-hm-match', {
                 hiringManagerId,
                 matchedDeveloperId
             })

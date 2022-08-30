@@ -17,7 +17,7 @@ const Favourites = ({ matches }) => {
     // gets the developer with the corresponding developer Id from the database 
     const getMatchedDevelopers = async () => {
         try {
-            const response = await axios.post("http://localhost:8000/get-matched-developers", {
+            const response = await axios.post("https://gentle-dev-hire.herokuapp.com/get-matched-developers", {
                 matchedDeveloperId
             })
 

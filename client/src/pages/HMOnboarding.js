@@ -33,7 +33,7 @@ const HMOnboarding = () => {
         console.log('submitted')
         e.preventDefault()
         try {
-            const response = await axios.post('http://localhost:8000/update-hiring-manager', {
+            const response = await axios.post('https://gentle-dev-hire.herokuapp.com/update-hiring-manager', {
                 formData
             }) //use axios.post because harperdb always expects post requests. 
 

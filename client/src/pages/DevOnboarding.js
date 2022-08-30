@@ -34,7 +34,7 @@ const OnBoarding = () => {
         console.log('submitted')
         e.preventDefault()
         try {
-            const response = await axios.post('http://localhost:8000/update-developer', { formData })
+            const response = await axios.post('https://gentle-dev-hire.herokuapp.com/update-developer', { formData })
             console.log(response)
             const success = response.status === 200
             if (success) navigate('/dev-dashboard')

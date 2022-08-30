@@ -34,7 +34,7 @@ const HiringManagerAuthModal = ({ setShowModal, isSignUp }) => {
             }
 
             //posts to the hiring manager signup and login operations in the backend
-            const response = await axios.post(`http://localhost:8000/${isSignUp ? 'hm-signup' : 'hm-login'}`, { email, password })
+            const response = await axios.post(`https://gentle-dev-hire.herokuapp.com/${isSignUp ? 'hm-signup' : 'hm-login'}`, { email, password })
 
             setCookie('HiringManagerAuthToken', response.data.token)
             setCookie('HiringManagerId', response.data.hiringManagerId)

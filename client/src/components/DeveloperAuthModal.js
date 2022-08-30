@@ -32,7 +32,7 @@ const DeveloperAuthModal = ({ setShowModal, isSignUp }) => {
             }
 
             //posts to the developer signup and login operations in the backend
-            const response = await axios.post(`http://localhost:8000/${isSignUp ? 'dev-signup' : 'dev-login'}`, { email, password })
+            const response = await axios.post(`https://gentle-dev-hire.herokuapp.com/${isSignUp ? 'dev-signup' : 'dev-login'}`, { email, password })
 
             setCookie('DeveloperAuthToken', response.data.token)
             setCookie('DeveloperId', response.data.developerId)
