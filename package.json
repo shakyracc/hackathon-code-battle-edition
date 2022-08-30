@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "bcrypt": "^5.0.1",
     "react-country-dropdown": "^1.0.4"
   }
 }
