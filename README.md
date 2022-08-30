@@ -42,7 +42,9 @@ Project Management: 🔷 Jira Software, 🔷 Confluence, 🚥 Google Meet, 📦 
 
 <img width="1728" alt="HOME - ADVANCE SEARCH" src="https://user-images.githubusercontent.com/108587575/187125682-9dfff299-8b74-43d2-9c66-7df4991296a4.png">
 <img width="1728" alt="HOME - MESSAGES" src="https://user-images.githubusercontent.com/108587575/187125694-f59ebf84-d8a2-424e-8d35-0837af9f911a.png">
-![Screenshot 2022-08-29 at 12 36 28 AM](https://user-images.githubusercontent.com/108587575/187455849-c2f275ac-72ca-4bcc-b1e0-0f69117ef83d.png)
+
+![Screenshot 2022-08-29 at 12 36 28 AM](https://user-images.githubusercontent.com/108587575/187456119-6b641a6f-14d2-4b41-82ea-185f74ede40c.png)
+
 
 
 
