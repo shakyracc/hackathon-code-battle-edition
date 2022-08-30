@@ -281,7 +281,7 @@ const OnBoarding = () => {
 
                     <section>
 
-                        <label htmlFor="url">Profile Photo</label>
+                        <label htmlFor="url">Profile Photo: enter image address </label>
                         <input
                             type="url"
                             name="url"

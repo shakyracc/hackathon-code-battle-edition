@@ -82,7 +82,7 @@ const HMOnboarding = () => {
                             value={formData.first_name}
                             onChange={handleChange}
                         />
-                        <label htmlFor="url">Profile Photo</label>
+                        <label htmlFor="url">Profile Photo: enter image address </label>
                         <input
                             type="url"
                             name="url"

@@ -23,7 +23,7 @@ const HMDashboard = () => {
 
     // set hmInterest to the interest specified on the HMOnboarding page.
     // this will be passed to the backend to return the corresponding users to the dashboard
-    const hmInterest = hiringManager?.interest 
+    const hmInterest = hiringManager?.interest
 
     // uses the hiringManagerId to fetch the profile details of that hiringManager
     // the returned response is used to populate the chat, profile photo, favourites etc...
@@ -31,7 +31,7 @@ const HMDashboard = () => {
         try {
             const response = await axios.post('https://gentle-dev-hire.herokuapp.com/get-hiring-manager', {
                 hiringManagerId
-            })  
+            })
 
             // sets hiringManager to the profile details return from the axios.post request
             setHiringManager(response.data)
@@ -59,9 +59,9 @@ const HMDashboard = () => {
 
     useEffect(() => {
         getHiringManager()
-    }, []) 
+    }, [])
 
-    
+
     useEffect(() => {
         if (hiringManager) {
             getDevelopers()
@@ -112,20 +112,9 @@ const HMDashboard = () => {
 
                                 {developers?.map((developer) =>
 
-                                    
+
                                     <TinderCard
-                                        // className="swipe"
-                                        // key={developer.first_name}
-                                        // onSwipe={(dir) => swiped(dir, developer.id)}
-                                        // onCardLeftScreen={() => outOfFrame(developer.first_name)}>
-                                        // <div
-                                        //     style={{ backgroundImage: "url(" + developer.url + ")" }}
-                                        //     className="card">
-                                        //     <h3>{developer.first_name}</h3>
-                                        // </div>
-
-
-                                         className='swipe'
+                                        className='swipe'
                                         key={developer.first_nam}
                                         onSwipe={(dir) => swiped(dir, developer.id)}
                                         onCardLeftScreen={() => outOfFrame(developer.first_nam)}>
@@ -172,14 +161,14 @@ const HMDashboard = () => {
                                         </div>
                                     </TinderCard>
                                 )}
-                            
+
                                 <div className="swipe-info">
                                     {lastDirection ? <p>You swiped {lastDirection}</p> : <p />}
                                 </div>
                             </div>
                         </div>
 
-                        
+
                         <div className='dev-details-container'> {/*chat-container*/}
 
                             <div className='dev-details-container-header'> {/*chat-container-header*/}
