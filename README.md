@@ -4,6 +4,8 @@
 |    :----:   |
 | Eliminating hiring managers’ efficiency barriers by providing a bespoke platform connecting them directly to leading, developer talent. DevHire’s algorithm leverages advanced filtering and the Elo rating system to principally present hiring managers with top-tier professionals. We help hiring managers save time and money and accelerate towards faster growth in high-quality technology  development.     |
 
+## ❗️[LIVE SITE](https://devhire-hackathon.netlify.app)❗️
+
 ### 🔥 Check out our: 
 - [PitchDeck](https://github.com/shakyracornelius/hackathon-code-battle-edition/blob/main/DevHire%20Pitch%20Deck.pdf)
 - [Demo Video](https://clipchamp.com/watch/ptE4j5VBw25) 👀 apologies for the terrible audio
@@ -58,9 +60,19 @@ I started out with MongoDB as the database because there's simply more documenta
 
 To understand what Ania was saying, I read the Javascript, React and Nodejs(piece of it at least) handbooks by Flavio Copes @flaviocopes. 10/10 Highly recommend. 
 
-After that I went back to the code and tried my best to understand each line, making modifications where necessary. Once I managed to turn the tinder clone into DevHire using MongoDB, I read up on HarperDB documentation. Oh...this last paragraph all happened today btw. I say that because I often allow myself to forget my hard work. Not today though. Today I really pushed to meet the Hackathon requirements and I feel really proud of what myself and @3fcc#1923 have produced. 
+After that I went back to the code and tried my best to understand each line, making modifications where necessary. Once I managed to turn the tinder clone into DevHire using MongoDB, I read up on HarperDB documentation. Oh...this last paragraph all happened today [2022-08-29-04-00] btw. I say that because I often allow myself to forget my hard work. Not today though. Today I really pushed to meet the Hackathon requirements and I feel really proud of what myself and @3fcc#1923 have produced. 
 
-So yes, I got familiar with HarperDB through videos and documentation then gave it a try. *queue emotional damage. It's simpler than MongoDB in a way I guess, but the lack of community and documentation makes it a HEADACHEEE. omg debugging was a nightmare, but now that I've done it, I feel like I can do it again with less distress. and what's up with the arrays? i couldn't figure out how to 1. query an array and 2. do conditional search on the entire db, not just a row or hashed value.
+So yes, I got familiar with HarperDB through videos and documentation then gave it a try. *queue emotional damage. It's simpler than MongoDB in a way I guess, but the lack of community and documentation makes it a HEADACHEEE. omg debugging was a nightmare, but now that I've done it, I feel like I can do it again with less distress. and what's up with the arrays? i couldn't figure out how to 1. query an array and 2. do conditional search on the entire db, not just a row or hashed value. [2022-08-30-02-14]: i think i might have figure this out now. i just needed sleep and revisited articles. [this article by Francesco Ciulla](https://blog.francescociulla.com/crud-rest-api-using-nodejs-express-harperdb-docker) clarified things for me. Which means I might be able to make some improvements to the app. 
+
+**[2022-08-30-02-14] Deploying the site** Yes! Another thing I thought would take no time. 6hours later, here we are. 😪 but I've done it 😁 making use of Heroku's free tier while it's still available. Anyway, here's what it took. 
+- googled "how to deploy harperdb app". no results so...
+- googled "deploy mern stack". 
+- read through a bunch of articles until i landed on one i thought might work for me. i've learned my lesson. don't jump into the first article you find. read them through lest you find yourself screwing up your code and debugging for days. [this article by Nick Ray](https://dev.to/stlnick/how-to-deploy-a-full-stack-mern-app-with-heroku-netlify-ncb) provided a great guide
+- debug debug debug debug. if you check the commit history of this repo, you'll see that it was the node_modules, bcrypt and react-country dropdown packages giving the most trouble. i had to git -rm -r --cache . everything. i probably didn't have to do that actually, now that i know how this all works a bit more. i installed packages in the wrong directories. things were all over the place. thank you stackoverflow for existing 🙏
+- more debugging: fixing netlify compile issues when deploying with the help of [this article by Julia Undeutsch](https://dev.to/yuridevat/2-ways-to-overcome-deployment-problems-with-react-on-netlify-4l5p#chapter-3)
+- fixed page not found error with the help of [this article by Rajesh Royal](https://dev.to/rajeshroyal/page-not-found-error-on-netlify-reactjs-react-router-solved-43oa)
+- success ! 🥳 I think I might actually understand how an API really works now. nice 🤗 i think it's so cool that the app is deployed on two platforms. Netflify frontend and Heroku backend. didn't know that was possible. 
+
 
 #### Tech Stack 
 
@@ -85,7 +97,3 @@ Dennis Ivy for hosting the Hackathon
 3. Having a designer makes life WAYYYYYY easier as a full stack dev. Thank you @3fcc#1923 for taking on this challenge with me. 
 4. MVP MVP MVP MVP. I eliminated a block of code every time I sat down with the laptop. Too many bugs? can it. this is a prototype. I kept thinking, " there are gonna be so many experts in this competition, i NEEED working code and cool features to stand out"............garbage. Focus on your MVP. Refine the MVP if necessary. 
 5. Good project management tools help A LOT. They make remote team collaboration seemless. 
-
-
-
-
