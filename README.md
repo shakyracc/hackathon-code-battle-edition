@@ -89,7 +89,7 @@ So yes, I got familiar with HarperDB through videos and documentation then gave 
 
 #### Tech Stack 
 
-Backend: 🟪 Heroku, 🐶 HarperDB, 🍃 MongoDB, 🔗 Node.js, 🧩 Express, 🟣 Insomnia <br>
+Backend: 🟪 Heroku, 🐶 HarperDB, 🔗 Node.js, 🧩 Express, 🟣 Insomnia <br>
 Frontend: 🔷 Netlify, ⚛️ React.js, 🎨 Figma, 🎈 Zeplin <br>
 Project Management: 🔷 Jira Software, 🔷 Confluence, 🚥 Google Meet, 📦 Github <br>
 
