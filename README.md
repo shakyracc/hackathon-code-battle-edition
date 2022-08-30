@@ -1,15 +1,14 @@
 # Dennis Ivy Hackathon (Code Battle Edition)
 
-## ✨ Elevator Pitch 
+| ✨ Elevator Pitch ✨     |
+|    :----:   |
+| Eliminating hiring managers’ efficiency barriers by providing a bespoke platform connecting them directly to leading, developer talent. DevHire’s algorithm leverages advanced filtering and the Elo rating system to principally present hiring managers with top-tier professionals. We help hiring managers save time and money and accelerate towards faster growth in high-quality technology  development.     |
 
-Eliminating hiring managers’ efficiency barriers by providing a bespoke platform connecting them directly to leading, global developer talent. 
-
-DevHire’s algorithm leverages advanced filtering and the Elo rating system to principally present hiring managers with top-tier professionals. 
-
-We help hiring managers save time and money and accelerate towards faster growth in high-quality technology  development.
-
-### Check out our [PitchDeck](https://github.com/shakyracornelius/hackathon-code-battle-edition/blob/main/DevHire%20Pitch%20Deck.pdf) ⚠️
-### Check out our 🔴 [Demo Video](https://clipchamp.com/watch/ptE4j5VBw25) or download [here](https://github.com/shakyracornelius/hackathon-code-battle-edition/blob/main/prototype/DevHire%20Demo.mp4) 👀 apologies for the terrible audio 
+### 🔥 Check out our: 
+- [PitchDeck](https://github.com/shakyracornelius/hackathon-code-battle-edition/blob/main/DevHire%20Pitch%20Deck.pdf)
+- [Demo Video](https://clipchamp.com/watch/ptE4j5VBw25) 👀 apologies for the terrible audio
+- [Prototype PDF](https://github.com/shakyracornelius/hackathon-code-battle-edition/blob/main/DevHire%20Prototype.pdf)
+- [Figma](https://www.figma.com/file/uEM1I2XF5mDI0L7SEdDml0/DENNIS-IVY-HACKATHON?node-id=0%3A1) <br>
 
 ## 🎯 Objective
 
@@ -17,8 +16,8 @@ We help hiring managers save time and money and accelerate towards faster growth
 
 ## 🎨 Design 
 
-[Figma](https://www.figma.com/file/uEM1I2XF5mDI0L7SEdDml0/DENNIS-IVY-HACKATHON?node-id=0%3A1) <br>
-[Prototype](https://github.com/shakyracornelius/hackathon-code-battle-edition/tree/main/prototype)
+### [Figma](https://www.figma.com/file/uEM1I2XF5mDI0L7SEdDml0/DENNIS-IVY-HACKATHON?node-id=0%3A1) <br>
+### [Prototype](https://github.com/shakyracornelius/hackathon-code-battle-edition/blob/main/DevHire%20Prototype.pdf)
 
 <img width="1728" alt="HOME - ADVANCE SEARCH" src="https://user-images.githubusercontent.com/108587575/187125682-9dfff299-8b74-43d2-9c66-7df4991296a4.png">
 <img width="1728" alt="HOME - MESSAGES" src="https://user-images.githubusercontent.com/108587575/187125694-f59ebf84-d8a2-424e-8d35-0837af9f911a.png">
