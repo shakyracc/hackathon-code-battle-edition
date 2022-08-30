@@ -75,7 +75,7 @@ To understand what Ania was saying, I read the Javascript, React and Nodejs(piec
 
 After that I went back to the code and tried my best to understand each line, making modifications where necessary. Once I managed to turn the tinder clone into DevHire using MongoDB, I read up on HarperDB documentation. Oh...this last paragraph all happened today [2022-08-29-04-00] btw. I say that because I often allow myself to forget my hard work. Not today though. Today I really pushed to meet the Hackathon requirements and I feel really proud of what myself and @3fcc#1923 have produced. 
 
-So yes, I got familiar with HarperDB through videos and documentation then gave it a try. *queue emotional damage. It's simpler than MongoDB in a way I guess, but the lack of community and documentation makes it a HEADACHEEE. omg debugging was a nightmare, but now that I've done it, I feel like I can do it again with less distress. and what's up with the arrays? i couldn't figure out how to 1. query an array and 2. do conditional search on the entire db, not just a row or hashed value. [2022-08-30-02-14]: i think i might have figure this out now. i just needed sleep and revisited articles. [this article by Francesco Ciulla](https://blog.francescociulla.com/crud-rest-api-using-nodejs-express-harperdb-docker) clarified things for me. Which means I might be able to make some improvements to the app. 
+So yes, I got familiar with HarperDB through videos and documentation then gave it a try. *queue emotional damage.* It's simpler than MongoDB in a way I guess, but the lack of community and documentation makes it a HEADACHEEE. omg debugging was a nightmare, but now that I've done it, I feel like I can do it again with less distress. and what's up with the arrays? i couldn't figure out how to 1. query an array and 2. do conditional search on the entire db, not just a row or hashed value. [2022-08-30-02-14]: i think i might have figure this out now. i just needed sleep and revisited articles. [this article by Francesco Ciulla](https://blog.francescociulla.com/crud-rest-api-using-nodejs-express-harperdb-docker) clarified things for me. Which means I might be able to make some improvements to the app. 
 
 **[2022-08-30-02-14] Deploying the site** Yes! Another thing I thought would take no time. 6hours later, here we are. 😪 but I've done it 😁 making use of Heroku's free tier while it's still available. Anyway, here's what it took. 
 - googled "how to deploy harperdb app". no results so...
@@ -89,9 +89,11 @@ So yes, I got familiar with HarperDB through videos and documentation then gave 
 
 #### Tech Stack 
 
-🦴 HarperDB, MongoDB, Node.js, React.js, Express <br>
-🤝 Jira Software, Confluence, Zeplin, Google Meet, Github, Figma <br>
-🧰 Insomnia (I wish I knew about this at the start of the project. I would have saved soooo much time on backend work. I only discovered it today. Game changer)
+Backend: 🟪 Heroku, 🐶 HarperDB, 🍃 MongoDB, 🔗 Node.js, 🧩 Express, 🟣 Insomnia <br>
+Frontend: 🔷 Netlify, ⚛️ React.js, 🎨 Figma, 🎈 Zeplin <br>
+Project Management: 🔷 Jira Software, 🔷 Confluence, 🚥 Google Meet, 📦 Github <br>
+
+I wish I knew about 🟣 Insomnia at the start of the project. I would have saved soooo much time on backend work. I only discovered it today [2022-08-28]. Game changer)
 
 #### Team Work 
 
