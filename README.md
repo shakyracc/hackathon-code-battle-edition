@@ -4,13 +4,16 @@
 |    :----:   |
 | Eliminating hiring managers’ efficiency barriers by providing a bespoke platform connecting them directly to leading, developer talent. DevHire’s algorithm leverages advanced filtering and the Elo rating system to principally present hiring managers with top-tier professionals. We help hiring managers save time and money and accelerate towards faster growth in high-quality technological development.     |
 
-## ❗️[LIVE SITE](https://devhire-hackathon.netlify.app)❗️
+| Link       | Notes       |
+| ----------- | ----------- |
+|  ❗️[LIVE SITE](https://devhire-hackathon.netlify.app)❗️                     | - Designer designed what we determined I (developer) might be able to code in time for the deadline <br> - Live Site only favourites one person at a time as I (developer) couldn't figure out the code in time.  |
 
 ### 🔥 Check out our: 
 - [PitchDeck](https://github.com/shakyracornelius/hackathon-code-battle-edition/blob/main/DevHire%20Pitch%20Deck.pdf)
 - [Demo Video](https://clipchamp.com/watch/ptE4j5VBw25) 👀 apologies for the terrible audio
 - [Prototype PDF](https://github.com/shakyracornelius/hackathon-code-battle-edition/blob/main/DevHire%20Prototype.pdf)
 - [Figma](https://www.figma.com/file/uEM1I2XF5mDI0L7SEdDml0/DENNIS-IVY-HACKATHON?node-id=0%3A1) <br>
+
 
 ## 👎🏾 The Problem 
 
@@ -78,6 +81,12 @@ It was an eye opening for me - collaborating with developers and I got to used a
 
 This hackathon was an incredible learning experience for me. Of the entire tech stack used to build this project, I only had experience in Jira and Github. @3fcc#1923 and I discoverd Zeplin together as a platform to share figma designs. 
 
+My background: 
+- 3 July 2022 : Started learning web development by attempting to create [my personal website](https://shakyra.cc/creating-the-site.html). I used Pelican because I wanted to learn python. 
+- 26 July 2022 I learned how to build my [first django project](https://shakyra.cc/first-django-project.html).
+- 14 August 2022 Started learning React for the hackathon using [tutorial from Code with Ania Kubów on Youtube](https://www.youtube.com/watch?v=Q70IMS-Qnjk)
+
+
 I initially thought I could tackle the problem with Django, but that flew out the door as soon as it became clear that connecting it to HarperDB was not going to be a beginner friendly task. Weird that I thought this and decided learning 2 stacks (MERN & HERN) was an easier route. 
 
 I started out with MongoDB as the database because there's simply more documentation out there on it. As a complete noob, I needed all the help I could get. I ended up following a tutorial on a MERN Tinder clone by Code with Ania Kubów on [Youtube](https://www.youtube.com/watch?v=Q70IMS-Qnjk). It's 5 hours long, but it's safe to say I've cycled through it at least 7 times. Again. noob. Totally worth it though. 
@@ -115,6 +124,10 @@ I met @3fcc#1923 on reddit a few months ago when they were searching for a Dart 
 [Code with Ania Kubów](https://www.youtube.com/watch?v=Q70IMS-Qnjk) <br>
 [Flavio Copes](https://flaviocopes.com) <br>
 [Aman Mittal](https://dev.to/amanhimself/build-a-rest-api-with-node-js-and-harperdb-3738) <br>
+[Francesco Ciulla](https://hashnode.com/@FrancescoCiulla) <br>
+[Rajesh Royal](https://dev.to/rajeshroyal) <br>
+[Julia Undeutsch](https://dev.to/yuridevat) <br>
+[Nick Ray](https://dev.to/stlnick) <br>
 Dennis Ivy for hosting the Hackathon 
 
 #### Lessons 
